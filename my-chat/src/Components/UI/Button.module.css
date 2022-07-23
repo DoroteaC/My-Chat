@@ -1,0 +1,6 @@
+.buttonStyle {
+    background-color: #2f68b6 ;
+    padding: 1vh 3vw;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
