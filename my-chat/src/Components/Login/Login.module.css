@@ -5,14 +5,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
 }
 
 .formStyles input {
+    /* display: block; */
     border: none;
     border-bottom: 1px solid #2f68b6;
     margin-bottom: 3vh;
     background-color: aliceblue;
-    width: 80%;
+    width: 42% !important;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
@@ -20,6 +22,12 @@
     outline:none;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
+
+.formStyles button {
+    color:whitesmoke;
+    font-weight: 700;
+}
+
 
 
 
