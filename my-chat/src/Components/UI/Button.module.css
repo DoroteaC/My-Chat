@@ -33,6 +33,14 @@
   left: 0px;
 }
 
+.buttonStyle:disabled,
+.buttonStyle:focus:disabled,
+.buttonStyle:hover:disabled,
+.buttonStyle:active:disabled,
+.buttonStyle:disabled {
+    background-color: #acb8c895 !important;
+  cursor: not-allowed !important;
+}
 @media (min-width: 768px) {
   .buttonStyle {
     padding: 13px 50px 13px;

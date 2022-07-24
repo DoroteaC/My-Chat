@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './Login.module.css';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
@@ -8,6 +8,7 @@ import Wrapper from '../Helpers/Wrapper';
 const Login = (props) => {
     const [username, setUsername] = useState('');
     const [error, setError] = useState();
+    const [formIsValid, setFormIsValid] = useState(false);
     const changeUsernameHandler = (event) => {
         setUsername(event.target.value);
     };
@@ -16,6 +17,17 @@ const Login = (props) => {
     //     setPassword(event.target.value);
     // };
    
+    useEffect(()=>{
+       const timer = setTimeout(()=>{
+            setFormIsValid(
+                username.trim().length>0, 
+            );
+        },500);
+       return ()=>{
+        clearTimeout(timer);
+       }
+      },[username]);
+
     const submitHandler = (event) => {
         event.preventDefault();
         if(username.trim().length===0){
@@ -50,7 +62,7 @@ return (
                 <input type='text' placeholder='Username' value ={username} onChange={changeUsernameHandler} ></input>
                 {/* <label>Password</label>
                 <input type='password' placeholder='Password' value={password} onChange={changePasswordHandler}  ></input> */}
-                <Button type='submit'><span className='buttonText'>Submit</span></Button>
+                <Button type='submit' disabled={!formIsValid}><span className='buttonText' >Submit</span></Button>
             </form>
         </Card>
     </Wrapper>
