@@ -38,7 +38,9 @@ const Login = (props) => {
               return;
         }
         console.log(username);
-            setUsername('');
+        
+        setUsername('');
+
         // console.log(password);
         // setPassword('');
     };
@@ -68,6 +70,5 @@ return (
         </Card>
     </Wrapper>
 )
-} 
-
-export default Login;
+} ;
+export default Login ;
