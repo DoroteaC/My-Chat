@@ -59,9 +59,15 @@ return (
         <Card>
             <form className={styles.formStyles} onSubmit={submitHandler}>
                 {/* <label>Username</label> */}
+<<<<<<< Updated upstream
                 <input type='text' placeholder='Username' value ={username} onChange={changeUsernameHandler} ></input>
                 {/* <label>Password</label>
                 <input type='password' placeholder='Password' value={password} onChange={changePasswordHandler}  ></input> */}
+=======
+                <input id="username" type='text' placeholder='Username' value ={username} onChange={changeUsernameHandler} ></input>
+                {/* <label>Password</label> */}
+                {/* <input type='password' placeholder='Password' value={password} onChange={changePasswordHandler}  ></input> */}
+>>>>>>> Stashed changes
                 <Button type='submit' disabled={!formIsValid}><span className='buttonText' >Submit</span></Button>
             </form>
         </Card>
