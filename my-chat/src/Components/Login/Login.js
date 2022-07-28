@@ -60,6 +60,7 @@ return (
             <form className={styles.formStyles} onSubmit={submitHandler}>
                 {/* <label>Username</label> */}
                 <input id="username" type='text' placeholder='Username' value ={username} onChange={changeUsernameHandler} ></input>
+
                 {/* <label>Password</label> */}
                 {/* <input type='password' placeholder='Password' value={password} onChange={changePasswordHandler}  ></input> */}
                 <Button type='submit' disabled={!formIsValid}><span className='buttonText' >Submit</span></Button>
