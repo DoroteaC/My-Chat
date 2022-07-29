@@ -29,6 +29,7 @@ const Login = (props) => {
       },[username]);
 
     const submitHandler = (event) => {
+        props.onSubmit();
         event.preventDefault();
         if(username.trim().length===0){
             setError({

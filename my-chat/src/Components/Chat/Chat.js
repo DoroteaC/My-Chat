@@ -1,6 +1,9 @@
-import styles from './chat.module.css';
-import Login form '../components/Login/Login'
+import styles from './Chat.module.css';
+
 const Chat = (props) => {
+const buttonHandler = (event)=> {
+  event.preventDefault();
+}
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatGroups}>
@@ -20,9 +23,9 @@ const Chat = (props) => {
           </ul>
         </div>
         <div className={styles.chatWrite}>
-            <form>
+            <form onSubmit={buttonHandler}>
                 <input></input>
-                <button></button>
+                <button>Send</button>
             </form>
         </div>
       </div>
