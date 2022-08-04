@@ -1,9 +1,9 @@
-import styles from './Chat.module.css';
+import styles from "./Chat.module.css";
 
 const Chat = (props) => {
-const buttonHandler = (event)=> {
-  event.preventDefault();
-}
+  const buttonHandler = (event) => {
+    event.preventDefault();
+  };
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatGroups}>
@@ -23,14 +23,19 @@ const buttonHandler = (event)=> {
           </ul>
         </div>
         <div className={styles.chatWrite}>
-            <form onSubmit={buttonHandler}>
-                <input></input>
-                <button>Send</button>
-            </form>
+          <form onSubmit={buttonHandler}>
+            <input></input>
+            <button>Send</button>
+          </form>
         </div>
       </div>
       <div className={styles.chatOnline}>
-        <ul></ul>
+        <ul>
+          <li> Alen</li>
+          <li> Luka 1 </li>
+          <li> Tatjana </li>
+          <li> Dalia </li>
+        </ul>
       </div>
     </div>
   );

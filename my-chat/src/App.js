@@ -5,6 +5,7 @@ import "./App.css";
 // import Input from "./Components/Chat/Input";
 import Chat from "./Components/Chat/Chat";
 import Login from "./Components/Login/Login";
+import Header from "./Components/UI/Header"
 
 function App(props) {
   const [userIsActive, setUserIsActive] = useState(false);
@@ -16,12 +17,14 @@ function App(props) {
   if (!userIsActive) {
     return (
       <div className="App">
+        <Header></Header>
         <Login  username = {username} onSubmit={setUser}/>
       </div>
     );
   } else {
     return (
       <div className="App">
+        <Header></Header>
         <Chat />
       </div>
     );

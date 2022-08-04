@@ -41,7 +41,6 @@
     width: 27% !important;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
- 
 }
 .formStyles input:focus {
     outline:none;
@@ -52,6 +51,12 @@
     color:whitesmoke;
     font-weight: 700;
    
+}
+
+@media (min-width: 768px) {
+    .imagesContainer h1 {
+        font-size: 2em;
+    }
 }
 
 
