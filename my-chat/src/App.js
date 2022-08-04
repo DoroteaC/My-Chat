@@ -6,8 +6,9 @@ import "./App.css";
 import Chat from "./Components/Chat/Chat";
 import Login from "./Components/Login/Login";
 
-function App() {
+function App(props) {
   const [userIsActive, setUserIsActive] = useState(false);
+  const username = "";
   // const [thisUser, setThisUser] = useState('');
   const setUser = () => {
     setUserIsActive(true);
@@ -15,7 +16,7 @@ function App() {
   if (!userIsActive) {
     return (
       <div className="App">
-        <Login  onSubmit={setUser}/>
+        <Login  username = {username} onSubmit={setUser}/>
       </div>
     );
   } else {

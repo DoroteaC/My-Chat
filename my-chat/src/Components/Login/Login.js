@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import styles from './Login.module.css';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
-import ErrorModal from '../UI/ErrorModal.js';
+// import ErrorModal from '../UI/ErrorModal.js';
 import Wrapper from '../Helpers/Wrapper';
+import Swal from 'sweetalert2'
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
-    const [error, setError] = useState();
+    // Error modal
+    // const [error, setError] = useState();
     const [formIsValid, setFormIsValid] = useState(false);
     const changeUsernameHandler = (event) => {
         setUsername(event.target.value);
@@ -29,36 +31,44 @@ const Login = (props) => {
       },[username]);
 
     const submitHandler = (event) => {
-        props.onSubmit();
+       
         event.preventDefault();
         if(username.trim().length===0){
-            setError({
-                title: 'Invalid username',
-                message: 'Please enter a valid username to continuoue.',
-              });
+            Swal.fire({
+                title: 'Wrong username!',
+                text: 'Please eneter valid username.',
+                icon: 'error',
+                confirmButtonText: 'Back',
+                confirmButtonColor: '#2f68b6'
+              })
+            // Error Module
+            // setError({
+            //     title: 'Invalid username',
+            //     message: 'Please enter a valid username to continuoue.',
+            //   });
               return;
         }
         console.log(username);
-        
+         props.onSubmit();
         setUsername('');
 
         // console.log(password);
         // setPassword('');
     };
 
-    const errorHandler = () => {
-        setError(null);
-      };
+    // const errorHandler = () => {
+    //     setError(null);
+    //   };
 
 return (
     <Wrapper>
-        {error && (
+        {/* {error && (
             <ErrorModal
             title={error.title}
             message={error.message}
             onConfirm={errorHandler}
             />
-        )}
+        )} */}
         <Card>
             <form className={styles.formStyles} onSubmit={submitHandler}>
                 {/* <label>Username</label> */}
