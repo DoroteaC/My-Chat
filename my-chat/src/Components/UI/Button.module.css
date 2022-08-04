@@ -34,8 +34,9 @@
 .buttonStyle:disabled {
   transition: 0.2s;
     background-color: #acb8c895 !important;
-    cursor: not-allowed !important;
+    /* cursor: not-allowed !important; */
     border: .2em solid #dce2e995 ;
+    cursor: url("../../../Media/closes.svg") 10 3 ,not-allowed;
 }
 @media (min-width: 768px) {
   .buttonStyle {

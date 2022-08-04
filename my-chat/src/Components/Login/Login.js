@@ -31,7 +31,6 @@ const Login = (props) => {
       },[username]);
 
     const submitHandler = (event) => {
-       
         event.preventDefault();
         if(username.trim().length===0){
             Swal.fire({
@@ -49,7 +48,7 @@ const Login = (props) => {
               return;
         }
         console.log(username);
-         props.onSubmit();
+        props.onSubmit();
         setUsername('');
 
         // console.log(password);
