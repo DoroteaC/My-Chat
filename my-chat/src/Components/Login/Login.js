@@ -4,9 +4,12 @@ import Button from '../UI/Button';
 import Card from '../UI/Card';
 // import ErrorModal from '../UI/ErrorModal.js';
 import Wrapper from '../Helpers/Wrapper';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 const Login = (props) => {
+    const BluWhite1 = require('../Media/Blu/1x/1x/BluWhite1.png');
+    // const BluText = require('../Media/BluTextWhite.png');
+
     const [username, setUsername] = useState('');
     // Error modal
     // const [error, setError] = useState();
@@ -61,13 +64,15 @@ const Login = (props) => {
 
 return (
     <Wrapper>
-        {/* {error && (
+        <div className={styles.container}> 
+              {/* {error && (
             <ErrorModal
             title={error.title}
             message={error.message}
             onConfirm={errorHandler}
             />
         )} */}
+        
         <Card>
             <form className={styles.formStyles} onSubmit={submitHandler}>
                 {/* <label>Username</label> */}
@@ -78,6 +83,11 @@ return (
                 <Button type='submit' disabled={!formIsValid}><span className='buttonText' >Submit</span></Button>
             </form>
         </Card>
+        <div className={styles.imagesContainer}>
+            <img src={BluWhite1} alt="Blu"/>
+            <h1>blu blu</h1>
+            </div>
+        </div>
     </Wrapper>
 )
 } ;

@@ -1,6 +1,6 @@
 .cardContainer {
-    height:60vh;
-    width:45vw;
+    height:45vh;
+    width:35vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
