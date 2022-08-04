@@ -1,6 +1,49 @@
 
 
 /* CSS */
+
+.buttonStyle{
+  transition: 0.2s;
+   font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+  border: .2em solid #5984c0 ;
+  border-radius:  0.25em;
+  background-color: #2f68b6;
+  ;
+}
+.buttonStyle:focus {
+  transition: 0.1s;
+  box-shadow: 0 0 0 3px rgba(#2f68b6, 0.5);
+}
+
+.buttonStyle:hover {
+  transition: 0.1s;
+  background-color: #295ba0;
+  border: .2em solid #4b7cc0 ;
+}
+
+.buttonStyle:disabled,
+.buttonStyle:focus:disabled,
+.buttonStyle:hover:disabled,
+.buttonStyle:active:disabled,
+.buttonStyle:disabled {
+  transition: 0.2s;
+    background-color: #acb8c895 !important;
+    /* cursor: not-allowed !important; */
+    border: .2em solid #dce2e995 ;
+    cursor: url("../../../Media/closes.svg") 10 3 ,not-allowed;
+}
+@media (min-width: 768px) {
+  .buttonStyle {
+    padding: 13px 50px 13px;
+  }
+}
+/* }
 .buttonStyle {
   font-size: 16px;
   font-weight: 200;
@@ -45,4 +88,4 @@
   .buttonStyle {
     padding: 13px 50px 13px;
   }
-}
+} */

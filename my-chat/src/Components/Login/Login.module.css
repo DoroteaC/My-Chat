@@ -1,3 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10vw;
+    width:80vw;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.imagesContainer {
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 0 8vw;
+}
+
+.imagesContainer h1 {
+    font-family: blu;
+    color:white;
+    font-size: 5em;
+}
+
+
 .formStyles {
     height:auto;
     width: 80%;
@@ -14,9 +38,10 @@
     border-bottom: 1px solid #2f68b6;
     margin-bottom: 3vh;
     background-color: aliceblue;
-    width: 42% !important;
+    width: 27% !important;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+ 
 }
 .formStyles input:focus {
     outline:none;
@@ -26,6 +51,7 @@
 .formStyles button {
     color:whitesmoke;
     font-weight: 700;
+   
 }
 
 
