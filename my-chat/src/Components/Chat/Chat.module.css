@@ -1,0 +1,20 @@
+.chatContainer {
+    display: flex;
+    flex-direction: row;
+    height:80vh;
+    width:80vw;
+}
+
+.chatGroups{
+    flex-grow: 2;
+    background-color: brown;
+}
+.mainChatSpace {
+    flex-grow: 5;
+    background-color: blue;
+}
+
+.chatOnline {
+    flex-grow: 2;
+    background-color: blueviolet;
+}
