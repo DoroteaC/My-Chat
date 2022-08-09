@@ -1,13 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import styles from "./Chat.module.css";
 
 const Chat = (props) => {
-  const dispatch = useDispatch();
-  const usersname = useSelector(state => state.usersname);
+  const usersname = useSelector(state => state.username);
   const buttonHandler = (event) => {
     event.preventDefault();
-    console.log(usersname)
+    console.log(usersname + ' pressed send!')
   };
   return (
     <div className={styles.chatContainer}>

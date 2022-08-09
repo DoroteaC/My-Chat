@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './Login.module.css';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
@@ -7,6 +8,7 @@ import Wrapper from '../Helpers/Wrapper';
 import Swal from 'sweetalert2';
 
 const Login = (props) => {
+    const dispatch = useDispatch();
     const BluWhite1 = require('../Media/Blu/1x/1x/BluWhite1.png');
     // const BluText = require('../Media/BluTextWhite.png');
 
@@ -16,6 +18,7 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
     const changeUsernameHandler = (event) => {
         setUsername(event.target.value);
+        dispatch({type: 'user', username: event.target.value})
     };
     // const [password, setPassword] = useState('');
     // const changePasswordHandler = (event) => {
