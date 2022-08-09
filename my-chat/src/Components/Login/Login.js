@@ -18,7 +18,7 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
     const changeUsernameHandler = (event) => {
         setUsername(event.target.value);
-        dispatch({type: 'user', username: event.target.value})
+        dispatch({type: 'user', username: event.target.value, isActive: true})
     };
     // const [password, setPassword] = useState('');
     // const changePasswordHandler = (event) => {

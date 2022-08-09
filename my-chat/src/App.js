@@ -13,17 +13,20 @@ function App(props) {
   const setUser = () => {
     setUserIsActive(true);
 };
+const setUserInactive = () => {
+  setUserIsActive(false)
+}
   if (!userIsActive) {
     return (
       <div className="App">
         <Header></Header>
-        <Login   onSubmit={setUser}/>
+        <Login onSubmit={setUser}/>
       </div>
     );
   } else {
     return (
       <div className="App">
-        <Header></Header>
+        <Header onSubmit={setUserInactive}></Header>
         <Chat />
       </div>
     );
