@@ -7,6 +7,12 @@
     padding: 2vh 10vw;
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.headerLogo {
+    display:flex;
+    flex-direction: row;
 }
 
 .header img {
@@ -20,4 +26,15 @@ width:auto;
     color:white;
     font-weight: 100;
     padding-left: 2vw;
+}
+
+.button {
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 12px;;
+    padding: 7px 10px 7px;
+   touch-action: manipulation;
+   border: .2em solid #487cc5 ;
+   border-radius:  0.25em;
+   background-color: #224b84;
 }

@@ -18,7 +18,7 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
     const changeUsernameHandler = (event) => {
         setUsername(event.target.value);
-        dispatch({type: 'user', username: event.target.value, isActive: true})
+        // dispatch({type: "user", username: event.target.value})
     };
     // const [password, setPassword] = useState('');
     // const changePasswordHandler = (event) => {
@@ -53,8 +53,11 @@ const Login = (props) => {
             //   });
               return;
         }
-        console.log(username);
+        // dispatch({ type: "user", username: username });
+        
         props.onSubmit();
+        dispatch({type: 'user',username:username, isActive:1})
+        console.log(username);
 
         // console.log(password);
         // setPassword('');
@@ -65,7 +68,6 @@ const Login = (props) => {
     //   };
 
 return (
-    username, 
     <Wrapper>
         <div className={styles.container}> 
               {/* {error && (
