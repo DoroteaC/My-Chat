@@ -52,7 +52,6 @@ const Login = (props) => {
         }
         console.log(username);
         props.onSubmit();
-        setUsername('');
 
         // console.log(password);
         // setPassword('');
@@ -63,6 +62,7 @@ const Login = (props) => {
     //   };
 
 return (
+    username, 
     <Wrapper>
         <div className={styles.container}> 
               {/* {error && (
