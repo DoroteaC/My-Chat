@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Button from '../UI/Button';
 
 import styles from "./Chat.module.css";
 
@@ -29,7 +30,7 @@ const Chat = (props) => {
         <div className={styles.chatWrite}>
           <form onSubmit={buttonHandler}>
             <input></input>
-            <button>Send</button>
+            <Button>Send</Button>
           </form>
         </div>
       </div>
