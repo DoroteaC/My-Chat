@@ -10,9 +10,10 @@ const Header = (props) => {
     event.preventDefault();
 
     dispatch({ type: "active", isActive: 0 });
-    props.onSubmit();
     dispatch({ type: "user", username: "" });
-    console.log(activeUser);
+    props.onSubmit();
+    
+    // console.log(activeUser);
   };
   return (
     <div className={styles.header}>
