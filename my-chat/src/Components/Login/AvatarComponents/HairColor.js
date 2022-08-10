@@ -10,15 +10,15 @@ const HairColor = () => {
         dispatch({type: 'hairColor',hairColor: event.target.value})
 
     }
-  const colorHair = [
-    "blonde",
-    "orange",
-    "black",
-    "white",
-    "brown",
-    "blue",
-    "pink",
-  ];
+//   const colorHair = [
+//     "blonde",
+//     "orange",
+//     "black",
+//     "white",
+//     "brown",
+//     "blue",
+//     "pink",
+//   ];
   return (
     <Wrapper>
       <form className={styles.hairColorForm}>
