@@ -1,14 +1,19 @@
 import { BigHead } from "@bigheads/core";
-import { useState } from "react";
+import { useSelector } from 'react-redux';
+// import { useState } from "react";
 import styles from "./Avatar.module.css";
+import Gender from "./AvatarComponents/Gender";
+import HairColor from "./AvatarComponents/HairColor";
 
 const Avatar = () => {
+    const gender = useSelector(state => state.gender);
+    const hairColor = useSelector(state => state.hairColor);
+
+
     // const skin = ['light', 'brown', 'dark',  'black']
-const [gender, setGender] = useState('chest');
+
 // const [skinColor, setSkinColor] = useState(skin[0]);
-    const genderHandler = (event) =>{
-        setGender(event.target.value);
-    };
+   
     // const skinHandlerNext = () => {
     //    for(i=0,i<=3,i++){
     //         setSkinColor(i)}
@@ -19,15 +24,15 @@ const [gender, setGender] = useState('chest');
       <BigHead
         body={gender}
         accessory="none"
-    circleColor='blue'
-    clothing="tankTop"
+        circleColor='blue'
+        clothing="tankTop"
     clothingColor="black"
     eyebrows="raised"
     eyes="normal"
     facialHair="none"
     graphic="react"
     hair="short"
-    hairColor="black"
+    hairColor={hairColor}
     hat="none"
     lashes="false"
     lipColor="purple"
@@ -35,15 +40,8 @@ const [gender, setGender] = useState('chest');
     skinTone='light'
       />
       <div className={styles.chooseAvatar}>
-        <div>
-          <span>Gender</span>
-          <form onClick={genderHandler}>
-            <input type="radio" id="F" name="gender" value="breasts" />
-            <label for="F"><img src="../Media/female.png" alt="female"/></label>
-            <input type="radio" id="M" name="gender"  value="chest" />
-            <label for="M">Male</label>
-          </form>
-        </div>
+      <Gender></Gender>
+      <HairColor></HairColor>
         {/* <div>
           <span>Skin</span>
           <span id='next' onClick={skinHandlerNext}><img src="../Media/right-arrow.png" alt="right arrow"/></span>

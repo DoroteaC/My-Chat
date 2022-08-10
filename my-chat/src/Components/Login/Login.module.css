@@ -29,7 +29,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
 }
 
 .formStyles input {
@@ -37,8 +36,9 @@
     border: none;
     border-bottom: 1px solid #2f68b6;
     margin-bottom: 3vh;
+    margin-top: 2vh;
     background-color: aliceblue;
-    width: 27% !important;
+    width: 75% !important;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
@@ -51,6 +51,10 @@
     color:whitesmoke;
     font-weight: 700;
    
+}
+
+form svg {
+    height: 15vh !important;
 }
 
 @media (min-width: 768px) {

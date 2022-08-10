@@ -1,0 +1,51 @@
+.hairColorForm button {
+    height:2vh;
+    width: 2vh;
+}
+
+.hairColorForm p {
+    font-family: blu;
+    font-weight: 700;
+}
+
+.blonde {
+    background-color: #FAF0BE !important;
+    border: 1px solid #f6eaac;
+    margin: 0.2vw;
+}
+
+.orange {
+    background-color: #DA680F !important;
+    border: 1px solid #be590c;
+    margin: 0.2vw;
+}
+
+.black {
+    background-color: black !important;
+    border: 1px solid rgb(17, 17, 17);
+    margin: 0.2vw;
+}
+
+.white {
+    background-color: whitesmoke !important;
+    border: 1px solid rgb(206, 205, 205);
+    margin: 0.2vw;
+}
+
+.brown {
+    background-color: #5A3825 !important;
+    border: 1px solid #3c2518;
+    margin: 0.2vw;
+}
+
+.blue {
+    background-color: #55CEFF !important;
+    border: 1px solid #46a8cf;
+    margin: 0.2vw;
+}
+
+.pink {
+    background-color: #FFB6C1 !important;
+    border: 1px solid #de9da7;
+    margin: 0.2vw;
+}

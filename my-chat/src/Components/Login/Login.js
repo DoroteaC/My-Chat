@@ -78,8 +78,9 @@ return (
         )} */}
         
         <Card>
+            <Avatar></Avatar>
             <form className={styles.formStyles} onSubmit={submitHandler}>
-                <Avatar></Avatar>
+                
                 {/* <label>Username</label> */}
                 <input id="username" type='text' placeholder='Username' value ={username} onChange={changeUsernameHandler} ></input>
 

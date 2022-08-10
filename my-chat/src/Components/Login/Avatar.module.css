@@ -9,3 +9,17 @@
     display: flex;
     flex-direction: row;
 }
+.span {
+    font-family: blu;
+    font-weight: 700;
+}
+.genderForm {
+    
+    display: flex;
+}
+.genderForm input {
+    width: 1vw;
+}
+form img {
+    width: 2vw;
+}

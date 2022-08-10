@@ -1,0 +1,14 @@
+
+.span {
+    font-family: blu;
+    font-weight: 700;
+}
+.genderForm {
+    
+    display: flex;
+}
+
+form img {
+    width: 1.5vw;
+    margin: 0.2vw;
+}
