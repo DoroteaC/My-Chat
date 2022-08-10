@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 import styles from "./Avatar.module.css";
 import Gender from "./AvatarComponents/Gender";
 import HairColor from "./AvatarComponents/HairColor";
+import Hair from "./AvatarComponents/Hair";
 
 const Avatar = () => {
     const gender = useSelector(state => state.gender);
     const hairColor = useSelector(state => state.hairColor);
+    const hairStyle = useSelector(state => state.hairStyle);
 
   return (
     <div className={styles.avatar}>
@@ -21,7 +23,7 @@ const Avatar = () => {
     eyes="normal"
     facialHair="none"
     graphic="react"
-    hair="short"
+    hair={hairStyle}
     hairColor={hairColor}
     hat="none"
     lashes="false"
@@ -32,6 +34,7 @@ const Avatar = () => {
       <div className={styles.chooseAvatar}>
       <Gender></Gender>
       <HairColor></HairColor>
+      <Hair></Hair>
        
       </div>
     </div>

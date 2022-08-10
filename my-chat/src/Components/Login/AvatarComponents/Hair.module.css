@@ -1,0 +1,13 @@
+.hairPicker {
+    display: flex;
+    flex-direction: row;
+}
+
+.hairPicker img {
+    width: 12px;
+    height: auto;
+}
+
+.hairPicker button {
+    background-color: transparent;
+}
