@@ -1,0 +1,11 @@
+.avatar {
+    display: flex;
+}
+
+.avatar svg {
+    height: 15vh;
+}
+.chooseAvatar{
+    display: flex;
+    flex-direction: row;
+}

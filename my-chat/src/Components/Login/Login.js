@@ -5,6 +5,7 @@ import Button from '../UI/Button';
 import Card from '../UI/Card';
 // import ErrorModal from '../UI/ErrorModal.js';
 import Wrapper from '../Helpers/Wrapper';
+import Avatar from './Avatar';
 import Swal from 'sweetalert2';
 
 const Login = (props) => {
@@ -18,7 +19,6 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
     const changeUsernameHandler = (event) => {
         setUsername(event.target.value);
-        // dispatch({type: "user", username: event.target.value})
     };
     // const [password, setPassword] = useState('');
     // const changePasswordHandler = (event) => {
@@ -53,7 +53,6 @@ const Login = (props) => {
             //   });
               return;
         }
-        // dispatch({ type: "user", username: username });
         
         props.onSubmit();
         dispatch({type: 'user',username:username, isActive:1})
@@ -80,6 +79,7 @@ return (
         
         <Card>
             <form className={styles.formStyles} onSubmit={submitHandler}>
+                <Avatar></Avatar>
                 {/* <label>Username</label> */}
                 <input id="username" type='text' placeholder='Username' value ={username} onChange={changeUsernameHandler} ></input>
 
