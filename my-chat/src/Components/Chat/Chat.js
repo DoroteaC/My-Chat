@@ -1,18 +1,16 @@
-import { useSelector } from 'react-redux';
-import Button from '../UI/Button';
-
+import { useSelector } from "react-redux";
+import Button from "../UI/Button";
 
 import styles from "./Chat.module.css";
 
 const Chat = (props) => {
-  const usersname = useSelector(state => state.username);
+  const usersname = useSelector((state) => state.username);
   const buttonHandler = (event) => {
     event.preventDefault();
-    console.log(usersname + ' pressed send!')
+    console.log(usersname + " pressed send!");
   };
   return (
     <div className={styles.chatContainer}>
-     
       <div className={styles.chatGroups}>
         <ul>
           <li>Group 1</li>
