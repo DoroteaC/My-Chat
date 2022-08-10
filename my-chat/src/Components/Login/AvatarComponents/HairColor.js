@@ -1,14 +1,16 @@
 import { useDispatch } from 'react-redux';
 import Wrapper from "../../Helpers/Wrapper";
 import styles from './HairColor.module.css'
+import { useSelector } from 'react-redux';
 
 const HairColor = () => {
     const dispatch = useDispatch();
+    const gender = useSelector(state => state.gender);
 
     const hairColorHandler = (event) =>{
         event.preventDefault();
-        dispatch({type: 'hairColor',hairColor: event.target.value})
-
+        dispatch({type: 'hairColor',hairColor: event.target.value, gender:gender})
+        console.log(event.target.value)
     }
 //   const colorHair = [
 //     "blonde",

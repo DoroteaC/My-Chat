@@ -14,10 +14,12 @@ const userName = (state = {username: '', isActive: 0, gender: 'chest', hairColor
         if (action.type==='gender') {
             return {
                 gender: action.gender,
+                hairColor: action.hairColor,
             }
         }
         if(action.type==='hairColor') {
             return {
+                gender: action.gender,
                 hairColor: action.hairColor,
             }
         }
