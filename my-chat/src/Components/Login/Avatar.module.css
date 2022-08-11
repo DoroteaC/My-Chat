@@ -3,11 +3,15 @@
 }
 
 .avatar svg {
-    height: 15vh;
+    height: 20vh !important;
+    align-self: center;
+    margin-right: vw;
 }
 .chooseAvatar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .span {
     font-family: blu;

@@ -1,9 +1,10 @@
-.hairPicker {
+.skinPicker {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
+    margin: 0 2vw;
 }
 
-.hairPicker img {
+.skinPicker img {
     width: 12px;
     height: auto;
     display: flex;
@@ -11,7 +12,7 @@
     justify-content: center;
 }
 
-.hairPicker button {
+.skinPicker button {
     background-color: transparent;
     padding: 1vh 1vw;
 }

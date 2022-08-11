@@ -1,9 +1,9 @@
-.hairPicker {
+.eyebrowsPicker {
     display: flex;
     flex-direction: row;
 }
 
-.hairPicker img {
+.eyebrowsPicker img {
     width: 12px;
     height: auto;
     display: flex;
@@ -11,7 +11,7 @@
     justify-content: center;
 }
 
-.hairPicker button {
+.eyebrowsPicker button {
     background-color: transparent;
     padding: 1vh 1vw;
 }

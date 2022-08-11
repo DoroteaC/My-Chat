@@ -1,9 +1,9 @@
-.hairPicker {
+.beardPicker {
     display: flex;
     flex-direction: row;
 }
 
-.hairPicker img {
+.beardPicker img {
     width: 12px;
     height: auto;
     display: flex;
@@ -11,7 +11,7 @@
     justify-content: center;
 }
 
-.hairPicker button {
+.beardPicker button {
     background-color: transparent;
     padding: 1vh 1vw;
 }

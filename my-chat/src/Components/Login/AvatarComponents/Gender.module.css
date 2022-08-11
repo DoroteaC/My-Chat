@@ -2,13 +2,38 @@
 .span {
     font-family: blu;
     font-weight: 700;
+    margin-right: 1vw;
 }
 .genderForm {
-    
     display: flex;
 }
 
-form img {
-    width: 1.5vw;
-    margin: 0.2vw;
+
+.genderForm button {
+    height:2vh;
+    width: 2vh;
+    background-color: transparent; 
+    margin: 0 .2vw;
+    padding: 1vh;}
+
+.genderForm button:focus {
+    border: 1px solid #144c9af7;
+    padding: 1vh;
 }
+
+.chest{
+    background-image: url(../../Media/male.png);
+    background-size: cover;
+    height: 2vh;
+
+}
+.breasts{
+    background-image: url(../../Media/female.png);
+    background-size: cover;
+    height: 2vh;
+}
+
+.genderForm button:focus {
+    border: 1px solid #144c9af7;
+    padding:0.2vh
+ }

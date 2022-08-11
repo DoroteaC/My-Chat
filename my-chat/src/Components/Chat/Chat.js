@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import Button from "../UI/Button";
 
 import styles from "./Chat.module.css";
-
 const Chat = (props) => {
   const usersname = useSelector((state) => state.username);
   const buttonHandler = (event) => {

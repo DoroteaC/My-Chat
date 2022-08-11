@@ -1,29 +1,18 @@
-.hairColorForm button {
+.clothingColorForm button {
     height:2vh;
     width: 2vh;
 }
 
-.hairColorForm button:focus {
+.clothingColorForm button:focus {
     border: 3px solid #144c9af7;
  }
 
 
-.hairColorForm p {
+.clothingColorForm p {
     font-family: blu;
     font-weight: 700;
 }
 
-.blonde {
-    background-color: #FAF0BE !important;
-    border: 1px solid #f6eaac;
-    margin: 0.2vw;
-}
-
-.orange {
-    background-color: #DA680F !important;
-    border: 1px solid #be590c;
-    margin: 0.2vw;
-}
 
 .black {
     background-color: black !important;
@@ -49,8 +38,14 @@
     margin: 0.2vw;
 }
 
-.pink {
-    background-color: #FFB6C1 !important;
-    border: 1px solid #de9da7;
+.green {
+    background-color: green !important;
+    border: 1px solid rgb(1, 82, 1);
     margin: 0.2vw;
 }
+.red {
+    background-color: red !important;
+    border: 1px solid rgb(201, 3, 3);
+    margin: 0.2vw;
+}
+

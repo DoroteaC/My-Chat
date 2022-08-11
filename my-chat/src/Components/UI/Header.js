@@ -7,12 +7,13 @@ const Header = (props) => {
   const activeUser = useSelector((state) => state.isActive);
   const BluWhite1 = require("../Media/Blu/1x/1x/BluWhite1.png");
   const logoutHandler = (event) => {
-    event.preventDefault();
-
+    
+    props.onSubmit();
     dispatch({ type: "active", isActive: 0 });
     dispatch({ type: "user", username: "" });
-    props.onSubmit();
-    
+    dispatch({ type: "avatar", avatarSet: 0 });
+   
+
     // console.log(activeUser);
   };
   return (
