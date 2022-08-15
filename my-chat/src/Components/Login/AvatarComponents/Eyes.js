@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Eyes.module.css";
+import { avatarActions } from "../../Redux/Redux";
 let counter = 0;
 const Eyes =() =>{
     const eyesType = ['normal', 'leftTwitch', 'happy', 'content', 'squint', 'simple', 'dizzy', 'wink', 'heart'];
@@ -24,7 +25,7 @@ const Eyes =() =>{
       }
       console.log(counter);
       console.log(eyesType[counter]);
-      dispatch({ type: "eyesType", eyes: eyesType[counter] });
+      dispatch(avatarActions.eyesType(eyesType[counter]));
     }
   };
   const previousHandler = (event) => {
@@ -41,7 +42,7 @@ const Eyes =() =>{
       }
       console.log(counter);
       console.log(eyesType[counter]);
-      dispatch({ type: "eyesType", eyes: eyesType[counter] });
+      dispatch(avatarActions.eyesType(eyesType[counter]));
     }
   };
 

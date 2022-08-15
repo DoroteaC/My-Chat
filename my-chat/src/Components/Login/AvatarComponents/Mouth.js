@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Mouth.module.css";
+import {avatarActions} from '../../Redux/Redux';
 let counter = 0;
 const Mouth = () => {
   const mouthType = [
@@ -32,7 +33,7 @@ const Mouth = () => {
       }
       console.log(counter);
       console.log(mouthType[counter]);
-      dispatch({ type: "mouthType", mouth: mouthType[counter] });
+      dispatch(avatarActions.mouthType(mouthType[counter]));
     }
   };
   const previousHandler = (event) => {
@@ -49,7 +50,7 @@ const Mouth = () => {
       }
       console.log(counter);
       console.log(mouthType[counter]);
-      dispatch({ type: "mouthType", mouth: mouthType[counter] });
+      dispatch(avatarActions.mouthType(mouthType[counter]));
     }
   };
 

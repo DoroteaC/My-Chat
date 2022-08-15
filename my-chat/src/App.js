@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createDispatchHook, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 // // import Login from "./Components/Login/Login";
 // import Messages from "./Components/Chat/Messages";
@@ -7,12 +7,15 @@ import "./App.css";
 import Chat from "./Components/Chat/Chat";
 import Login from "./Components/Login/Login";
 import Header from "./Components/UI/Header";
+import {userActions} from './Components/Redux/Redux'
+
 
 function App(props) {
   const dispatch = useDispatch();
   const [userIsActive, setUserIsActive] = useState(false);
   // const [thisUser, setThisUser] = useState('');
   const setUser = () => {
+    dispatch(userActions.isActive(1));
     setUserIsActive(true);
   };
   const setUserInactive = () => {

@@ -14,16 +14,16 @@ import ClothingColor from "./AvatarComponents/ClothingColor";
 import Clothing from "./AvatarComponents/Clothing";
 
 const Avatar = () => {
-  const gender = useSelector((state) => state.gender);
-  const hairColor = useSelector((state) => state.hairColor);
-  const hairStyle = useSelector((state) => state.hairStyle);
-  const eyesStyle = useSelector((state) => state.eyes);
-  const eyebrows = useSelector((state) => state.eyebrows);
-  const mouth = useSelector((state) => state.mouth);
-  const skin = useSelector((state) => state.skin);
-  const beard = useSelector((state) => state.beard);
-  const clothing = useSelector((state) => state.clothing);
-  const clothingColor = useSelector((state) => state.clothingColor);
+  const gender = useSelector((state) => state.avatar.gender);
+  const hairColor = useSelector((state) => state.avatar.hairColor);
+  const hairStyle = useSelector((state) => state.avatar.hairStyle);
+  const eyesStyle = useSelector((state) => state.avatar.eyes);
+  const eyebrows = useSelector((state) => state.avatar.eyebrows);
+  const mouth = useSelector((state) => state.avatar.mouth);
+  const skin = useSelector((state) => state.avatar.skin);
+  const beard = useSelector((state) => state.avatar.beard);
+  const clothing = useSelector((state) => state.avatar.clothing);
+  const clothingColor = useSelector((state) => state.avatar.clothingColor);
 
 
   return (

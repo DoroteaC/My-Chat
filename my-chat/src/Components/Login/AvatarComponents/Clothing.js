@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Clothing.module.css";
+import { avatarActions } from "../../Redux/Redux";
 let counter = 0;
 const Skin = () => {
   const clothingType = [
@@ -26,7 +27,7 @@ const Skin = () => {
       }
       console.log(counter);
       console.log(clothingType[counter]);
-      dispatch({ type: "clothingType", clothing: clothingType[counter] });
+      dispatch(avatarActions.clothingType(clothingType[counter]));
     }
   };
   const previousHandler = (event) => {
@@ -43,7 +44,7 @@ const Skin = () => {
       }
       console.log(counter);
       console.log(clothingType[counter]);
-      dispatch({ type: "clothingType", clothing: clothingType[counter] });
+      dispatch(avatarActions.clothingType(clothingType[counter]));
     }
   };
 

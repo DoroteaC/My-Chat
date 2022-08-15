@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Beard.module.css";
+import { avatarActions } from "../../Redux/Redux";
 let counter = 0;
 const Beard = () => {
   const beardType = [
@@ -26,7 +27,7 @@ const Beard = () => {
       }
       console.log(counter);
       console.log(beardType[counter]);
-      dispatch({ type: "beardType", beard: beardType[counter] });
+      dispatch(avatarActions.beardType(beardType[counter]));
     }
   };
   const previousHandler = (event) => {
@@ -43,7 +44,7 @@ const Beard = () => {
       }
       console.log(counter);
       console.log(beardType[counter]);
-      dispatch({ type: "beardType", beard: beardType[counter] });
+      dispatch(avatarActions.beardType(beardType[counter]));
     }
   };
 

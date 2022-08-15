@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Skin.module.css";
+import {avatarActions} from '../../Redux/Redux'
 let counter = 0;
 const Skin = () => {
    
@@ -29,7 +30,7 @@ const Skin = () => {
             }
             console.log(counter);
             console.log(skinType[counter]);
-            dispatch({ type: "skinType", skin: skinType[counter] });
+            dispatch(avatarActions.skinType(skinType[counter]));
           }
         
   };
@@ -47,7 +48,7 @@ const Skin = () => {
       }
       console.log(counter);
       console.log(skinType[counter]);
-      dispatch({ type: "skinType", skin: skinType[counter] });
+      dispatch(avatarActions.skinType(skinType[counter]));
     }
   };
 

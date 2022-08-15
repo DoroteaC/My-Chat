@@ -27,7 +27,17 @@ width:auto;
     font-weight: 100;
     padding-left: 2vw;
 }
+.header h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7em;
+    color:white;
+    font-weight: 200;
+    padding-left: 2vw;
+}
 
+.header svg  {
+    height: 80px
+}
 .button {
     color: whitesmoke;
     font-weight: 700;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Eyebrows.module.css";
+import { avatarActions } from "../../Redux/Redux";
 let counter = 0;
 const Eyebrows =() =>{
     const eyebrowsType = ['raised', 'leftLowered', 'serious', 'angry', 'concerned'];
@@ -24,7 +25,7 @@ const Eyebrows =() =>{
       }
       console.log(counter);
       console.log(eyebrowsType[counter]);
-      dispatch({ type: "eyebrowsType", eyebrows: eyebrowsType[counter] });
+      dispatch(avatarActions.eyebrowsType(eyebrowsType[counter]));
     }
   };
   const previousHandler = (event) => {
@@ -41,7 +42,7 @@ const Eyebrows =() =>{
       }
       console.log(counter);
       console.log(eyebrowsType[counter]);
-      dispatch({ type: "eyebrowsType", eyebrows: eyebrowsType[counter] });
+      dispatch(avatarActions.eyebrowsType(eyebrowsType[counter]));
     }
   };
 

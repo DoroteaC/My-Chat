@@ -1,16 +1,15 @@
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./HairColor.module.css";
+import { avatarActions } from "../../Redux/Redux";
 
 const HairColor = () => {
   const dispatch = useDispatch();
-
+  
   const hairColorHandler = (event) => {
     event.preventDefault();
-    dispatch({
-      type: "hairColor",
-      hairColor: event.target.value,
-    });
+    const color = event.target.value;
+    dispatch(avatarActions.hairColor(color));
     console.log(event.target.value);
   };
   //   const colorHair = [

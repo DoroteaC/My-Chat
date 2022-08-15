@@ -1,7 +1,6 @@
-import { createStore } from "redux";
-const defaultState = {
-  username: "",
-  isActive: 0,
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+
+const avatarInitial = {
   gender: "chest",
   hairColor: "brown",
   hairStyle: "long",
@@ -13,167 +12,79 @@ const defaultState = {
   clothing: "shirt",
   clothingColor: "blue",
 };
-const appReducer = (
-  state = defaultState,
-  action
-) => {
-  if (action.type === "user") {
-    return {
-      username: action.username,
-      isActive: action.isActive,
-    };
-  }
-  if (action.type === "active") {
-    return {
-      isActive: action.isActive,
-    };
-  }
-  if (action.type === "gender") {
-    return {
-      gender: action.gender,
-      hairStyle: state.hairStyle,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      eyebrows: state.eyebrows,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "hairColor") {
-    return {
-      hairColor: action.hairColor,
-      gender: state.gender,
-      hairStyle: state.hairStyle,
-      eyes: state.eyes,
-      eyebrows: state.eyebrows,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "hairStyle") {
-    return {
-      hairStyle: action.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      eyebrows: state.eyebrows,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "eyesType") {
-    return {
-      eyes: action.eyes,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyebrows: state.eyebrows,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "eyebrowsType") {
-    return {
-      eyebrows: action.eyebrows,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "mouthType") {
-    return {
-      eyebrows: state.eyebrows,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      mouth: action.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "skinType") {
-    return {
-      eyebrows: state.eyebrows,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      mouth: state.mouth,
-      skin: action.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "beardType") {
-    return {
-      eyebrows: state.eyebrows,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: action.beard,
-      clothing: state.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "clothingType") {
-    return {
-      eyebrows: state.eyebrows,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: action.clothing,
-      clothingColor: state.clothingColor,
-    };
-  }
-  if (action.type === "clothingColor") {
-    return {
-      eyebrows: state.eyebrows,
-      hairStyle: state.hairStyle,
-      gender: state.gender,
-      hairColor: state.hairColor,
-      eyes: state.eyes,
-      mouth: state.mouth,
-      skin: state.skin,
-      beard: state.beard,
-      clothing: state.clothing,
-      clothingColor: action.clothingColor,
-    };
-  }
-  if (action.type === "reset") {
-    return defaultState;
-  }
-  return state;
+
+const userInitial = {
+  username: "",
+  isActive: 0,
 };
 
-const store = createStore(appReducer);
+const avatarSlice = createSlice({
+  name: "avatar",
+  initialState: avatarInitial,
+  reducers: {
+    gender(state, action) {
+      state.gender = action.payload;
+    },
+    hairColor(state, action) {
+      state.hairColor = action.payload;
+    },
+    hairType(state, action) {
+      state.hairStyle = action.payload;
+    },
+    eyesType(state, action) {
+      state.eyes = action.payload;
+    },
+    eyebrowsType(state, action) {
+      state.eyebrows = action.payload;
+    },
+    mouthType(state, action) {
+      state.mouth = action.payload;
+    },
+    skinType(state, action) {
+      state.skin = action.payload;
+    },
+    beardType(state, action) {
+      state.beard = action.payload;
+    },
+    clothingType(state, action) {
+      state.clothing = action.payload;
+    },
+    clothingColor(state, action) {
+      state.clothingColor = action.payload;
+    },
+    reset() {
+      return {
+        ...avatarInitial,
+      };
+    },
+  },
+});
+
+const userSlice = createSlice({
+  name: "user",
+  initialState: userInitial,
+  reducers: {
+    user(state, action) {
+      state.username = action.payload;
+    },
+    isActive(state, action) {
+      state.isActive = action.payload;
+    },
+    reset() {
+      return {
+        ...userInitial,
+      };
+    },
+  },
+});
+
+const store = configureStore({
+  reducer: {
+    avatar: avatarSlice.reducer,
+    user: userSlice.reducer,
+  },
+});
+export const avatarActions = avatarSlice.actions;
+export const userActions = userSlice.actions;
 
 export default store;

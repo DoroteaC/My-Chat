@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Hair.module.css";
+import { avatarActions } from "../../Redux/Redux";
 let counter = 0;
 const Hair = () => {
   const hairStyles = [
@@ -34,7 +35,7 @@ const Hair = () => {
       }
       console.log(counter);
       console.log(hairStyles[counter]);
-      dispatch({ type: "hairStyle", hairStyle: hairStyles[counter] });
+      dispatch(avatarActions.hairType(hairStyles[counter]));
     }
   };
   const previousHandler = (event) => {

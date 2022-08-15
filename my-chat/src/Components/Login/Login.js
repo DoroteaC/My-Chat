@@ -7,6 +7,7 @@ import Card from "../UI/Card";
 import Wrapper from "../Helpers/Wrapper";
 import Swal from "sweetalert2";
 import Avatar from "./Avatar";
+import { userActions } from "../Redux/Redux";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const Login = (props) => {
       return;
     }
     props.onSubmit();
-    dispatch({ type: "user", username: username , isActive: 1});
+    dispatch(userActions.user(username));
     console.log(username);
 
     // console.log(password);

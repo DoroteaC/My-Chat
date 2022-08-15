@@ -1,16 +1,14 @@
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./ClothingColor.module.css";
+import { avatarActions } from "../../Redux/Redux";
 
 const ClothingColor = () => {
   const dispatch = useDispatch();
-
   const clothingColorHandler = (event) => {
     event.preventDefault();
-    dispatch({
-      type: "clothingColor",
-      clothingColor: event.target.value,
-    });
+    const color=  event.target.value;
+    dispatch(avatarActions.clothingColor(color));
     console.log(event.target.value);
   };
   //   const clothingColor = [
@@ -20,7 +18,7 @@ const ClothingColor = () => {
     <Wrapper>
       <form className={styles.clothingColorForm}>
         <p>Clothing color</p>
-       
+
         <button
           id="black"
           value="black"

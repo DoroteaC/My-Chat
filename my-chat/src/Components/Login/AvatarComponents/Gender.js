@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import styles from "./Gender.module.css";
+import { avatarActions } from "../../Redux/Redux";
 
 const Gender = () => {
   const dispatch = useDispatch();
@@ -7,11 +8,11 @@ const Gender = () => {
   const male = require("../../Media/male.png");
   const genderHandler = (event) => {
     event.preventDefault();
+    
+    const genderValue = event.target.value;
+    dispatch(avatarActions.gender(genderValue));
     console.log(event.target.value);
-    dispatch({
-      type: "gender",
-      gender: event.target.value,
-    });
+    
   };
   return (
     <div className={styles.genderForm}>

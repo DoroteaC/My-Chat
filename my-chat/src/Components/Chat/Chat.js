@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 
 import styles from "./Chat.module.css";
 const Chat = (props) => {
-  const usersname = useSelector((state) => state.username);
+  const usersname = useSelector((state) => state.user.username);
   const buttonHandler = (event) => {
     event.preventDefault();
     console.log(usersname + " pressed send!");
