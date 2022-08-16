@@ -1,7 +1,13 @@
 import React, { useState} from "react";
+
+import { useDispatch , useSelector} from "react-redux";
+import { messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
 
 const Input = (props) => {
+  const dispatch = useDispatch();
+  const input= useSelector((state) => state.message.message);
+
     const room = props.drone.subscribe("general");
   const [message, setMessage] = useState('');
     room.on("open", (error) => {
@@ -17,20 +23,23 @@ const Input = (props) => {
 
     const changeMessageHandler = (event) => {
       setMessage(event.target.value);
+        dispatch(messageActions.currentMessage(message));
     };
 
 const buttonHandler = (event) => {
   event.preventDefault();
     props.drone.publish({
         room: 'general',
-        message: {message:message}
+        message: {message:input}
       });
       props.onSubmit(event);
+      console.log(input);
+      setMessage('');
 }
 
     return (
         <form onSubmit={buttonHandler}>
-        <input  onChange={changeMessageHandler}></input>
+        <input value={message} onChange={changeMessageHandler}></input>
         <Button>Send</Button>
       </form>
     )
