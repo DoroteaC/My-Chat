@@ -91,11 +91,11 @@ const Login = (props) => {
                 value={username}
                 onChange={changeUsernameHandler}
               ></input>
-               <Avatar></Avatar> 
+               <Avatar type= 'avatar'></Avatar> 
 
               {/* <label>Password</label> */}
               {/* <input type='password' placeholder='Password' value={password} onChange={changePasswordHandler}  ></input> */}
-              <Button type="submit" disabled={!formIsValid}>
+              <Button type="submit" disabled={!formIsValid} onClick={submitUsernameHandler}>
                 <span className="buttonText">Submit</span>
               </Button>
             </form>

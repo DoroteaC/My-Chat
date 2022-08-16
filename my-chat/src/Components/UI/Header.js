@@ -35,9 +35,8 @@ const Header = (props) => {
         <img src={BluWhite1} alt="Blu" />
         <h1>blu blu</h1>
       </div>
-      <div>
+      <div className={styles.headerAvatar}>
         {activeUser === 1 && (<Wrapper>
-          <h3>Welcome {username} </h3>
           <BigHead className={styles.svg}
           body={gender}
           accessory="none"
@@ -56,6 +55,8 @@ const Header = (props) => {
           mouth={mouth}
           skinTone={skin}
         />
+          <h3>Welcome {username} </h3>
+         
           <Button className={styles.button} onClick={logoutHandler}>
             Logout
           </Button>

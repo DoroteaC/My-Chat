@@ -53,7 +53,7 @@ const Hair = () => {
       }
       console.log(counter);
       console.log(hairStyles[counter]);
-      dispatch({ type: "hairStyle", hairStyle: hairStyles[counter] });
+      dispatch(avatarActions.hairType(hairStyles[counter]));
     }
   };
 

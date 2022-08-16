@@ -27,16 +27,23 @@ width:auto;
     font-weight: 100;
     padding-left: 2vw;
 }
+
+.headerAvatar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .header h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 1.7em;
     color:white;
     font-weight: 200;
-    padding-left: 2vw;
+    padding-left: .5vw;
+    padding-top: 2vh
 }
 
 .header svg  {
-    height: 80px
+    height: 60px
 }
 .button {
     color: whitesmoke;
@@ -47,4 +54,6 @@ width:auto;
    border: .2em solid #487cc5 ;
    border-radius:  0.25em;
    background-color: #224b84;
+   margin-top: 2vh;
+   margin-left: 4vw
 }

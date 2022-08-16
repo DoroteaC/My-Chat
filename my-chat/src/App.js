@@ -19,25 +19,16 @@ function App(props) {
     setUserIsActive(true);
   };
   const setUserInactive = () => {
-    dispatch({ type: "reset" });
     setUserIsActive(false);
   };
 
-  if (!userIsActive) {
-    return (
-      <div className="App">
-        <Header></Header>
-        <Login onSubmit={setUser} />
+return (
+   <div className="App">
+        {userIsActive === true  ? <Header onSubmit={setUserInactive}></Header> : <Header></Header>}
+        {userIsActive === true ? <Chat /> : <Login onSubmit={setUser} />}
       </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <Header onSubmit={setUserInactive}></Header>
-        <Chat />
-      </div>
-    );
-  }
+)
+
 }
 
 export default App;
