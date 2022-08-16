@@ -23,7 +23,7 @@ const HairColor = () => {
   //   ];
   return (
     <Wrapper>
-      <form className={styles.hairColorForm}>
+      <div className={styles.hairColorForm}>
         <p>Hair color</p>
         <button
           id="blonde"
@@ -67,7 +67,7 @@ const HairColor = () => {
           className={styles.pink}
           onClick={hairColorHandler}
         ></button>
-      </form>
+      </div>
     </Wrapper>
   );
 };

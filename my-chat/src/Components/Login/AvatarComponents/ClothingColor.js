@@ -16,7 +16,7 @@ const ClothingColor = () => {
   //   ];
   return (
     <Wrapper>
-      <form className={styles.clothingColorForm}>
+      <div className={styles.clothingColorForm}>
         <p>Clothing color</p>
 
         <button
@@ -49,7 +49,7 @@ const ClothingColor = () => {
           className={styles.red}
           onClick={clothingColorHandler}
         ></button>
-      </form>
+      </div>
     </Wrapper>
   );
 };
