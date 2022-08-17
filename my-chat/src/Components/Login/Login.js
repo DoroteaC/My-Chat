@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./Login.module.css";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
@@ -12,18 +12,18 @@ import { userActions } from "../Redux/Redux";
 const Login = (props) => {
   const dispatch = useDispatch();
   const BluWhite1 = require("../Media/Blu/1x/1x/BluWhite1.png");
-  // const BluText = require('../Media/BluTextWhite.png');
   const [username, setUsername] = useState("");
   // Error modal
   // const [error, setError] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+
+  function randomColor() {
+    return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+  }
+
   const changeUsernameHandler = (event) => {
     setUsername(event.target.value);
   };
-  // const [password, setPassword] = useState('');
-  // const changePasswordHandler = (event) => {
-  //     setPassword(event.target.value);
-  // };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -52,19 +52,18 @@ const Login = (props) => {
       return;
     }
     props.onSubmit();
+    const color = randomColor();
+    dispatch(userActions.setColor(color));
+    console.log(color)
     dispatch(userActions.user(username));
-    console.log(username);
+    dispatch(userActions.setId(Math.random()));
 
-    // console.log(password);
-    // setPassword('');
+    console.log(username);
   };
 
   // const errorHandler = () => {
   //     setError(null);
   //   };
-
-
-
 
   return (
     <Wrapper>
@@ -76,31 +75,28 @@ const Login = (props) => {
             onConfirm={errorHandler}
             />
         )} */}
-       
-          <Card>
-          
-            <form
-              className={styles.formStyles}
-              onSubmit={submitUsernameHandler}
-            >
-              {/* <label>Username</label> */}
-              <input
-                id="username"
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={changeUsernameHandler}
-              ></input>
-               <Avatar type= 'avatar'></Avatar> 
 
-              {/* <label>Password</label> */}
-              {/* <input type='password' placeholder='Password' value={password} onChange={changePasswordHandler}  ></input> */}
-              <Button type="submit" disabled={!formIsValid} onClick={submitUsernameHandler}>
-                <span className="buttonText">Submit</span>
-              </Button>
-            </form>
-           
-          </Card>
+        <Card className={styles.loginCard}>
+          <form className={styles.formStyles} onSubmit={submitUsernameHandler}>
+            {/* <label>Username</label> */}
+            <input
+              id="username"
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={changeUsernameHandler}
+            ></input>
+            <Avatar type="avatar"></Avatar>
+
+            <Button
+              type="submit"
+              disabled={!formIsValid}
+              onClick={submitUsernameHandler}
+            >
+              <span className="buttonText">Submit</span>
+            </Button>
+          </form>
+        </Card>
         <div className={styles.imagesContainer}>
           <img src={BluWhite1} alt="Blu" />
           <h1>blu blu</h1>

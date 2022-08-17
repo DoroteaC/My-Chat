@@ -1,0 +1,12 @@
+.inputForm {display:flex;
+    flex-direction: row;
+    align-self: flex-end;
+    width: 100%
+} 
+
+.inputForm input {
+    flex-grow: 9
+}
+.inputForm button{
+    flex-grow: 1;
+}

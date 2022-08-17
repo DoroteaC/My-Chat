@@ -1,16 +1,5 @@
-const Messages = (props) => {
-  const room = props.drone.subscribe("general");
+import { useSelector } from "react-redux";
 
-  room.on("open", (error) => {
-    if (error) {
-      return console.error(error);
-    }
-    // Connected to room
-  });
-
-  room.on("message", (message) => {
-    console.log(message)
-  });
-};
+const Messages = (props) => {}
 
 export default Messages;

@@ -20,13 +20,15 @@ const Header = (props) => {
   const beard = useSelector((state) => state.avatar.beard);
   const clothing = useSelector((state) => state.avatar.clothing);
   const clothingColor = useSelector((state) => state.avatar.clothingColor);
+  const drone = props.drone;
   const logoutHandler = (event) => {
     
     props.onSubmit();
     dispatch(userActions.reset());
     dispatch(avatarActions.reset());
-   
-
+    drone.unsubscribe('general');
+    drone.close(console.log('disconected'));
+    
     // console.log(activeUser);
   };
   return (
@@ -37,6 +39,7 @@ const Header = (props) => {
       </div>
       <div className={styles.headerAvatar}>
         {activeUser === 1 && (<Wrapper>
+          <h3>Welcome {username} </h3>
           <BigHead className={styles.svg}
           body={gender}
           accessory="none"
@@ -55,8 +58,6 @@ const Header = (props) => {
           mouth={mouth}
           skinTone={skin}
         />
-          <h3>Welcome {username} </h3>
-         
           <Button className={styles.button} onClick={logoutHandler}>
             Logout
           </Button>

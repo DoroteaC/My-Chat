@@ -11,6 +11,7 @@ import {userActions} from './Components/Redux/Redux'
 
 
 function App(props) {
+  const drone = new window.Scaledrone("fH47iOzfM4qeMFdD");
   const dispatch = useDispatch();
   const [userIsActive, setUserIsActive] = useState(false);
   // const [thisUser, setThisUser] = useState('');
@@ -24,8 +25,8 @@ function App(props) {
 
 return (
    <div className="App">
-        {userIsActive === true  ? <Header onSubmit={setUserInactive}></Header> : <Header></Header>}
-        {userIsActive === true ? <Chat /> : <Login onSubmit={setUser} />}
+        {userIsActive === true  ? <Header onSubmit={setUserInactive} drone={drone}></Header> : <Header></Header>}
+        {userIsActive === true ? <Chat drone={drone} /> : <Login onSubmit={setUser} />}
       </div>
 )
 

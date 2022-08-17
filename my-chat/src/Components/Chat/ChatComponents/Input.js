@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import styles from './Input.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
@@ -7,33 +7,17 @@ import Button from "../../UI/Button";
 const Input = (props) => {
   const dispatch = useDispatch();
   const input = useSelector((state) => state.message.message);
-  const room = props.drone.subscribe("general");
+  const username = useSelector((state) => state.user.username);
+  
   const [message, setMessage] = useState("");
-  room.on("open", (error) => {
-    if (error) {
-      return console.error(error);
-    } else {
-      console.log('Connected to room')
-    }
-    // Connected to room
-  });
+  
 
-  room.on("message", (message) => {
-    console.log(message);
-  });
-
-  const changeMessageHandler = (event) => {
+   const changeMessageHandler  = (event) =>  {
     setMessage(event.target.value);
-    dispatch(messageActions.currentMessage(event.target.value))
   };
 
   const buttonHandler = (event) => {
     event.preventDefault();
-    ;
-    props.drone.publish({
-      room: "general",
-      message: { message: input },
-    });
     dispatch(messageActions.currentMessage(message));
     props.onSubmit(event);
     console.log(input);
@@ -41,7 +25,7 @@ const Input = (props) => {
   };
 
   return (
-    <form onSubmit={buttonHandler}>
+    <form className={styles.inputForm} onSubmit={buttonHandler}>
       <input value={message} onChange={changeMessageHandler}></input>
       <Button>Send</Button>
     </form>

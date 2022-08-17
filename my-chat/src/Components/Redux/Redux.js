@@ -1,7 +1,9 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
+export const members = []
+
 const messageInitial = {
   message: '',
-  allMessages: []
+  allMessages: {}
 }
 const avatarInitial = {
   gender: "chest",
@@ -19,6 +21,8 @@ const avatarInitial = {
 const userInitial = {
   username: "",
   isActive: 0,
+  userColor: '',
+  id: [],
 };
 
 const messageSlice = createSlice({
@@ -85,6 +89,12 @@ const userSlice = createSlice({
     isActive(state, action) {
       state.isActive = action.payload;
     },
+    setColor (state,action) {
+      state.userColor = action.payload;
+    },
+    setId (state,action){
+      state.id = action.payload;
+    },
     reset() {
       return {
         ...userInitial,
@@ -97,7 +107,7 @@ const store = configureStore({
   reducer: {
     avatar: avatarSlice.reducer,
     user: userSlice.reducer,
-    message: messageSlice.reducer
+    message: messageSlice.reducer,
   },
 });
 export const avatarActions = avatarSlice.actions;
