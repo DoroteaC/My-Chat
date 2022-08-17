@@ -14,11 +14,11 @@ const Input = (props) => {
 
    const changeMessageHandler  = (event) =>  {
     setMessage(event.target.value);
+    dispatch(messageActions.currentMessage(event.target.value))
   };
 
   const buttonHandler = (event) => {
     event.preventDefault();
-    dispatch(messageActions.currentMessage(message));
     props.onSubmit(event);
     console.log(input);
     setMessage("");

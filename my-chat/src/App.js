@@ -26,7 +26,7 @@ function App(props) {
 return (
    <div className="App">
         {userIsActive === true  ? <Header onSubmit={setUserInactive} drone={drone}></Header> : <Header></Header>}
-        {userIsActive === true ? <Chat drone={drone} /> : <Login onSubmit={setUser} />}
+        {userIsActive === true ? <Chat drone={drone} /> : <Login onSubmit={setUser} drone={drone} />}
       </div>
 )
 

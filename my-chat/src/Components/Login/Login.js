@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import styles from "./Login.module.css";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
@@ -56,7 +56,7 @@ const Login = (props) => {
     dispatch(userActions.setColor(color));
     console.log(color)
     dispatch(userActions.user(username));
-    dispatch(userActions.setId(Math.random()));
+    dispatch(userActions.setId(props.drone.clientId));
 
     console.log(username);
   };

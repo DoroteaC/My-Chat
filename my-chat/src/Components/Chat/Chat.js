@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import Messages from "./ChatComponents/Messages";
 import Input from "./ChatComponents/Input";
 import styles from "./Chat.module.css";
+import { messageActions } from "../Redux/Redux";
 
 const Chat = (props) => {
+  const dispatch = useDispatch();
   const usersname = useSelector((state) => state.user.username);
   const input = useSelector((state) => state.message.message);
+  const messages = useSelector((state) => state.message.allMessages);
 const drone = props.drone;
   
   drone.on("open", (error) => {
@@ -41,7 +44,11 @@ const drone = props.drone;
   });
 
   room.on("message", (message) => {
-    console.log(message)
+    console.log(message);
+    dispatch(messageActions.addMessage(message.data.text))
+    dispatch(messageActions.addCurrentMessage(message.data.text))
+    console.log(messages);
+    ;
   });
 
   const buttonHandler = (event) => {
@@ -49,11 +56,11 @@ const drone = props.drone;
     console.log(usersname + " pressed send!");
     drone.publish({
       room: "general",
-      message: { message: input },
+      message: { text: input },
       user: {username: usersname, avatar : {}}
     }
-
     )
+    
     
 }
   return (

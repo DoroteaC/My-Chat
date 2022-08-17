@@ -3,7 +3,8 @@ export const members = []
 
 const messageInitial = {
   message: '',
-  allMessages: {}
+  allMessages: [],
+  currentMessage : []
 }
 const avatarInitial = {
   gender: "chest",
@@ -22,7 +23,7 @@ const userInitial = {
   username: "",
   isActive: 0,
   userColor: '',
-  id: [],
+  id: '',
 };
 
 const messageSlice = createSlice({
@@ -34,6 +35,9 @@ const messageSlice = createSlice({
     },
     currentMessage(state,action){
       state.message = action.payload
+    },
+    addCurrentMessage(state,action){
+      state.currentMessage = action.payload
     }
   }
 })

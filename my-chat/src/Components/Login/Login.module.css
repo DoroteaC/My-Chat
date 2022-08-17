@@ -57,18 +57,18 @@ form svg {
     height: 15vh !important;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .imagesContainer h1 {
         font-size: 2em;
     }
 }
-@media (max-width: 991px) {
+@media only screen and (max-width: 991px) {
     .imagesContainer {
         display:none;
     }
     .loginCard {
-        height: 80vh;
-        width:80vw;
+        height: 80vh !important;
+        width: 80vw !important;;
     }
 }
 
