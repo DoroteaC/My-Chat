@@ -16,20 +16,10 @@
 .chatSpace {
     height:100%;
     width:100%;
+    overflow: scroll
 }
 
-.chatWrite {display:flex;
-    flex-direction: row;
-    align-self: flex-end;
-    width: 100%
-} 
 
-.chatWrite input {
-    flex-grow: 7
-}
-.chatWrite button{
-    flex-grow: 3;
-}
 
 .chatOnline {
     flex-grow: 3;
