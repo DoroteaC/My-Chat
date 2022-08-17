@@ -6,13 +6,8 @@ import Input from "./ChatComponents/Input";
 import styles from "./Chat.module.css";
 
 const Chat = (props) => {
-  const drone = new window.Scaledrone("tuWX20jOh6EVYttM");
   const usersname = useSelector((state) => state.user.username);
-  
-  const buttonHandler = (event) => {
-    event.preventDefault();
-    console.log(usersname + " pressed send!");
-  };
+  const drone = new window.Scaledrone("fH47iOzfM4qeMFdD");
 
   drone.on("open", (error) => {
     if (error) {
@@ -24,6 +19,13 @@ const Chat = (props) => {
         confirmButtonColor: "#2f68b6",
       });
     } else {
+      Swal.fire({
+        title: "Connected",
+        text: "You are connected, ready to start chatting?",
+        icon: "succes",
+        confirmButtonText: "Ready",
+        confirmButtonColor: "#2f68b6",
+      });
       console.log("Connected");
     }
   });
@@ -37,7 +39,10 @@ const Chat = (props) => {
       confirmButtonColor: "#2f68b6",
     });
   });
-
+  const buttonHandler = (event) => {
+    event.preventDefault();
+    console.log(usersname + " pressed send!");
+  };
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatGroups}>
