@@ -14,7 +14,7 @@ const Input = (props) => {
 
    const changeMessageHandler  = (event) =>  {
     setMessage(event.target.value);
-    dispatch(messageActions.currentMessage(event.target.value))
+    dispatch(messageActions.currentMessage({text: event.target.value, username}))
   };
 
   const buttonHandler = (event) => {

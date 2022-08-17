@@ -7,7 +7,6 @@ const Messages = (props) => {
   const userColor = useSelector((state) => state.user.userColor);
   const userId = useSelector((state) => state.user.id);
   const renderMessage = (message) => {
-    const {text} = message;
     const messageFromMe = message.id === userId;
     const className = messageFromMe
       ? "Messages-message currentMember"
@@ -16,8 +15,8 @@ const Messages = (props) => {
       <li className={className}>
         <span className="avatar" style={{ backgroundColor: userColor }} />
         <div className="Message-content">
-          <div className="username">{username}</div>
-          <div className="text">{message}</div>
+          <div className="username">{message.username}</div>
+          <div className="text">{message.text}</div>
         </div>
       </li>
     );
