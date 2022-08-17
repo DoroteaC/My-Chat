@@ -38,6 +38,11 @@ const messageSlice = createSlice({
     },
     addCurrentMessage(state,action){
       state.currentMessage = action.payload
+    },
+    reset () {
+      return {
+        ...messageInitial,
+      };
     }
   }
 })

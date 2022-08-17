@@ -1,9 +1,8 @@
+import { useRef } from "react";
 import { useSelector } from "react-redux";
 
 const Messages = (props) => {
   const allMessages = useSelector((state) => state.message.allMessages);
-  const message = useSelector((state) => state.message.currentMessage);
-  const username = useSelector((state) => state.user.username);
   const userColor = useSelector((state) => state.user.userColor);
   const userId = useSelector((state) => state.user.id);
   const renderMessage = (message) => {
@@ -12,7 +11,7 @@ const Messages = (props) => {
       ? "Messages-message currentMember"
       : "Messages-message";
     return (
-      <li className={className}>
+      <li className={className} key= {Math.random()} >
         <span className="avatar" style={{ backgroundColor: userColor }} />
         <div className="Message-content">
           <div className="username">{message.username}</div>

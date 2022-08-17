@@ -4,6 +4,7 @@ import Messages from "./ChatComponents/Messages";
 import Input from "./ChatComponents/Input";
 import styles from "./Chat.module.css";
 import { messageActions } from "../Redux/Redux";
+import { useRef } from "react";
 
 const Chat = (props) => {
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const drone = props.drone;
     <div className={styles.chatContainer}>
       <div className={styles.mainChatSpace}>
         <div className={styles.chatSpace}>
-          <Messages drone={drone}></Messages>
+          <Messages drone={drone} ></Messages>
           {/* <ul>
             <li> Poruka 1 </li>
             <li> Poruka 1 </li>
