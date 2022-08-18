@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
 import styles from "./Gender.module.css";
 import { avatarActions } from "../../Redux/Redux";
+import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
+
 
 const Gender = () => {
   const dispatch = useDispatch();
-  const female = require("../../Media/female.png");
-  const male = require("../../Media/male.png");
   const genderHandler = (event) => {
     event.preventDefault();
     
@@ -23,13 +23,13 @@ const Gender = () => {
         id="chest"
         value="chest"
         onClick={genderHandler}
-      ></button>
+      ><BsGenderMale  style={{color:'#05D6D9'}}  /></button>
       <button
         className={styles.breasts}
         id="breasts"
         value="breasts"
         onClick={genderHandler}
-      ></button>
+      > <BsGenderFemale style={{color:'#B91372'}}/></button>
     </div>
   );
 };

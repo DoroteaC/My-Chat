@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.module.css";
 import Button from "./Button";
-import { avatarActions, userActions } from "../Redux/Redux";
+import { avatarActions, messageActions, userActions } from "../Redux/Redux";
 import Wrapper from "../Helpers/Wrapper";
 import { BigHead } from "@bigheads/core";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ const Header = (props) => {
     
     // console.log(activeUser);
   };
+  const resetMessages = () => {
+    dispatch(messageActions.reset())
+  }
   return (
     <div className={styles.header}>
       <div className={styles.headerLogo}>
@@ -59,7 +63,10 @@ const Header = (props) => {
           skinTone={skin}
         />
           <Button className={styles.button} onClick={logoutHandler}>
-            Logout
+           <AiOutlineLogout style={{ color: 'white' }} /> Logout
+          </Button>
+          <Button className={styles.button} onClick={resetMessages}>
+            Reset 
           </Button>
         </Wrapper>
           

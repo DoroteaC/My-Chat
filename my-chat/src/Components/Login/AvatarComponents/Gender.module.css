@@ -4,34 +4,25 @@
 }
 .genderForm {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .genderForm button {
-    height:2vh;
-    width: 2vh;
-    background-color: transparent; 
-    margin: 0 .2vw;
-    padding: 1vh;}
+    height:4vh;
+    width: 4vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .genderForm button:focus {
-    border: 1px solid #144c9af7;
-    padding: 1vh;
+    border: 1.2px solid #457ecef7;
+    border-radius: 2vh;
 }
 
-.chest{
-    background-image: url(../../Media/male.png);
-    background-size: cover;
-    height: 2vh;
-
-}
-.breasts{
-    background-image: url(../../Media/female.png);
-    background-size: cover;
-    height: 2vh;
+.genderForm button svg {
+   height: 2vh !important
 }
 
-.genderForm button:focus {
-    border: 1px solid #144c9af7;
-    padding:0.2vh
- }

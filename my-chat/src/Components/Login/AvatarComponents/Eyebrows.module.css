@@ -1,17 +1,23 @@
 .eyebrowsPicker {
+    height: 30px;
     display: flex;
     flex-direction: row;
-}
-
-.eyebrowsPicker img {
-    width: 12px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .eyebrowsPicker button {
+   display: flex;
+   align-items: flex-start;
     background-color: transparent;
-    padding: 1vh 1vw;
+    padding: 0 1vw;
+    height: auto;
+}
+.eyebrowsPicker button span {
+    height: auto;
+    
+}
+.eyebrowsPicker button svg{
+    color: black;
+    height: auto !important;
 }

@@ -1,17 +1,25 @@
 .beardPicker {
+    height: 30px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.beardPicker img {
-    width: 12px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .beardPicker button {
+   display: flex;
+   align-items: flex-start;
     background-color: transparent;
-    padding: 1vh 1vw;
+    padding: 0 1vw;
+    height: auto;
+}
+.beardPicker button span {
+    height: auto;
+    
+}
+.beardPicker button svg{
+    color: black;
+    height: auto !important;
 }

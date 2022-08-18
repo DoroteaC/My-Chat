@@ -3,13 +3,12 @@ import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Beard.module.css";
 import { avatarActions } from "../../Redux/Redux";
+import { AiOutlineRight, AiOutlineLeft} from "react-icons/ai";
 let counter = 0;
 const Beard = () => {
   const beardType = [
     'none', 'stubble', 'mediumBeard'
   ];
-  const arrowNext = require("../../Media/right-arrow.png");
-  const arrowPrev = require("../../Media/left-arrow.png");
   const dispatch = useDispatch();
   const [counterBig, setCounterBig] = useState(false);
   const [counterSmall, setCounterSmall] = useState(true);
@@ -52,11 +51,11 @@ const Beard = () => {
     <Wrapper>
       <div className={styles.beardPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <img src={arrowPrev} alt="" />
+        <AiOutlineLeft/>
         </button>
         <span>Beard</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <img src={arrowNext} alt="" />
+        <AiOutlineRight/>
         </button>
       </div>
     </Wrapper>

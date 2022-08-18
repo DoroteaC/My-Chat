@@ -3,11 +3,20 @@ import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Eyes.module.css";
 import { avatarActions } from "../../Redux/Redux";
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 let counter = 0;
-const Eyes =() =>{
-    const eyesType = ['normal', 'leftTwitch', 'happy', 'content', 'squint', 'simple', 'dizzy', 'wink', 'heart'];
-    const arrowNext = require("../../Media/right-arrow.png");
-  const arrowPrev = require("../../Media/left-arrow.png");
+const Eyes = () => {
+  const eyesType = [
+    "normal",
+    "leftTwitch",
+    "happy",
+    "content",
+    "squint",
+    "simple",
+    "dizzy",
+    "wink",
+    "heart",
+  ];
   const dispatch = useDispatch();
   const [counterBig, setCounterBig] = useState(false);
   const [counterSmall, setCounterSmall] = useState(true);
@@ -50,11 +59,11 @@ const Eyes =() =>{
     <Wrapper>
       <div className={styles.eyesPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <img src={arrowPrev} alt="" />
+          <AiOutlineLeft />
         </button>
         <span>Eyes</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <img src={arrowNext} alt="" />
+          <AiOutlineRight/>
         </button>
       </div>
     </Wrapper>

@@ -3,11 +3,16 @@ import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Eyebrows.module.css";
 import { avatarActions } from "../../Redux/Redux";
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 let counter = 0;
-const Eyebrows =() =>{
-    const eyebrowsType = ['raised', 'leftLowered', 'serious', 'angry', 'concerned'];
-    const arrowNext = require("../../Media/right-arrow.png");
-  const arrowPrev = require("../../Media/left-arrow.png");
+const Eyebrows = () => {
+  const eyebrowsType = [
+    "raised",
+    "leftLowered",
+    "serious",
+    "angry",
+    "concerned",
+  ];
   const dispatch = useDispatch();
   const [counterBig, setCounterBig] = useState(false);
   const [counterSmall, setCounterSmall] = useState(true);
@@ -50,11 +55,11 @@ const Eyebrows =() =>{
     <Wrapper>
       <div className={styles.eyebrowsPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <img src={arrowPrev} alt="" />
+          <AiOutlineLeft />
         </button>
         <span>Eyebrows</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <img src={arrowNext} alt="" />
+        <AiOutlineRight />
         </button>
       </div>
     </Wrapper>
