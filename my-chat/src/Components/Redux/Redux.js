@@ -4,7 +4,8 @@ export const members = []
 const messageInitial = {
   message: '',
   allMessages: [],
-  currentMessage : []
+  currentMessage : [],
+  lastId:''
 }
 const avatarInitial = {
   gender: "chest",
@@ -38,6 +39,9 @@ const messageSlice = createSlice({
     },
     addCurrentMessage(state,action){
       state.currentMessage = action.payload
+    },
+    saveLastId (state,action){
+      state.lastId =action.payload
     },
     reset () {
       return {
