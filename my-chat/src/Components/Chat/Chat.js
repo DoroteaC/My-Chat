@@ -3,8 +3,8 @@ import Swal from "sweetalert2";
 import Messages from "./ChatComponents/Messages";
 import Input from "./ChatComponents/Input";
 import styles from "./Chat.module.css";
+import  "./ChatS.css";
 import { messageActions } from "../Redux/Redux";
-import { useRef } from "react";
 
 const Chat = (props) => {
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ const drone = props.drone;
         icon: "success",
         confirmButtonText: "Ready",
         confirmButtonColor: "#2f68b6",
+        confirmButtonRadius: 0.6 ,
       });
       console.log("Connected");
     }

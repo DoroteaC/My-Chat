@@ -43,6 +43,7 @@ const Login = (props) => {
         icon: "error",
         confirmButtonText: "Back",
         confirmButtonColor: "#2f68b6",
+        confirmButtonBorderRadius: 0.6 ,
       });
       // Error Module
       // setError({
@@ -92,6 +93,7 @@ const Login = (props) => {
               type="submit"
               disabled={!formIsValid}
               onClick={submitUsernameHandler}
+              className={styles.loginButton}
             >
               <span className="buttonText">Submit</span>
             </Button>

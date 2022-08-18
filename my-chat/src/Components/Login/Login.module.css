@@ -8,7 +8,7 @@
 }
 
 .loginCard {
-    height: 70vh;
+    height: 72vh !important;
 }
 .imagesContainer {
     display:flex;
@@ -58,6 +58,19 @@
 form svg {
     height: 15vh !important;
 }
+
+.loginButton {
+        color: aliceblue;
+       touch-action: manipulation;
+       background-color: #144c9af7;
+        border: .2em solid #103f81f7    
+}
+  
+  .loginButton:hover {
+    transition: 0.1s;
+    background-color: #245599f7;
+    border: .2em solid #144c9af7 ;
+  }
 
 @media only screen and (min-width: 768px) {
     .imagesContainer h1 {
