@@ -1,17 +1,23 @@
 .mouthPicker {
+    height: 30px;
     display: flex;
     flex-direction: row;
-}
-
-.mouthPicker img {
-    width: 12px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .mouthPicker button {
+   display: flex;
+   align-items: flex-start;
     background-color: transparent;
-    padding: 1vh 1vw;
+    padding: 0 1vw;
+    height: auto;
+}
+.mouthPicker button span {
+    height: auto;
+    
+}
+.mouthPicker button svg{
+    color: black;
+    height: auto !important;
 }

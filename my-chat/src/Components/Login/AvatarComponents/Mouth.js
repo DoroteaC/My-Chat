@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Mouth.module.css";
 import {avatarActions} from '../../Redux/Redux';
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 let counter = 0;
 const Mouth = () => {
   const mouthType = [
@@ -14,8 +15,6 @@ const Mouth = () => {
     "serious",
     "tongue",
   ];
-  const arrowNext = require("../../Media/right-arrow.png");
-  const arrowPrev = require("../../Media/left-arrow.png");
   const dispatch = useDispatch();
   const [counterBig, setCounterBig] = useState(false);
   const [counterSmall, setCounterSmall] = useState(true);
@@ -58,11 +57,11 @@ const Mouth = () => {
     <Wrapper>
       <div className={styles.mouthPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <img src={arrowPrev} alt="" />
+          <AiOutlineLeft />
         </button>
         <span>Mouth</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <img src={arrowNext} alt="" />
+          <AiOutlineRight />
         </button>
       </div>
     </Wrapper>

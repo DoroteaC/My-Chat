@@ -61,9 +61,9 @@ if (id === lastUserId){setSameSender(true)} else {setSameSender(false)}
   return (
     <form className={styles.inputForm} onSubmit={buttonHandler}>
       <input value={message} onChange={changeMessageHandler} placeholder='Chat here'></input>
-      <Button>Send</Button>
+      <Button>Send </Button>
     </form>
   );
 };
-
+// AiOutlineArrowUp
 export default Input;

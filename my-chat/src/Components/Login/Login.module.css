@@ -7,7 +7,9 @@
     align-items: center;
 }
 
-
+.loginCard {
+    height: 70vh;
+}
 .imagesContainer {
     display:flex;
     flex-direction: column;
@@ -23,7 +25,7 @@
 
 
 .formStyles {
-    height:auto;
+    height:100%;
     width: 80%;
     display: flex;
     flex-direction: column;

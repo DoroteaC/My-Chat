@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Hair.module.css";
 import { avatarActions } from "../../Redux/Redux";
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 let counter = 0;
 const Hair = () => {
   const hairStyles = [
@@ -15,8 +16,6 @@ const Hair = () => {
     "afro",
     "bob",
   ];
-  const arrowNext = require("../../Media/right-arrow.png");
-  const arrowPrev = require("../../Media/left-arrow.png");
   const dispatch = useDispatch();
   const [counterBig, setCounterBig] = useState(false);
   const [counterSmall, setCounterSmall] = useState(true);
@@ -61,11 +60,11 @@ const Hair = () => {
     <Wrapper>
       <div className={styles.hairPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <img src={arrowPrev} alt="" />
+          <AiOutlineLeft/>
         </button>
         <span>Hair Style</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <img src={arrowNext} alt="" />
+          <AiOutlineRight/>
         </button>
       </div>
     </Wrapper>
