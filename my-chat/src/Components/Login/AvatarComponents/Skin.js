@@ -2,15 +2,14 @@ import { useState } from "react";
 import { useDispatch} from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Skin.module.css";
-import {avatarActions} from '../../Redux/Redux'
+import {avatarActions} from '../../Redux/Redux';
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 let counter = 0;
 const Skin = () => {
    
   const skinType = [
     'light', 'yellow', 'brown', 'dark', 'red', 'black'
   ];
-  const arrowNext = require("../../Media/right-arrow.png");
-  const arrowPrev = require("../../Media/left-arrow.png");
   const dispatch = useDispatch();
   const [counterBig, setCounterBig] = useState(false);
   const [counterSmall, setCounterSmall] = useState(true);
@@ -54,16 +53,16 @@ const Skin = () => {
 
   return (
     <Wrapper>
-      <div className={styles.skinPicker}>
-        <button onClick={previousHandler} disabled={counterSmall}>
-          <img src={arrowPrev} alt="" />
-        </button>
-        <span>Skin</span>
-        <button onClick={nextHandler} disabled={counterBig}>
-          <img src={arrowNext} alt="" />
-        </button>
-      </div>
-    </Wrapper>
+    <div className={styles.skinPicker}>
+      <button onClick={previousHandler} disabled={counterSmall}>
+        <AiOutlineLeft/>
+      </button>
+      <span>Skin</span>
+      <button onClick={nextHandler} disabled={counterBig}>
+        <AiOutlineRight/>
+      </button>
+    </div>
+  </Wrapper>
   );
 };
 

@@ -46,25 +46,28 @@ width:auto;
     height: 60px
 }
 .button {
+    height:34px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: whitesmoke;
+    color: #333;
     font-weight: 700;
     font-size: 12px;;
     padding: 7px 10px 7px;
    touch-action: manipulation;
-   border: .2em solid #487cc5 ;
-   border-radius:  0.25em;
-   background-color: #224b84;
+   border-radius:  17px;
+   background-color: whitesmoke;
    margin-top: 2vh;
-   margin-left: 4vw
+   margin-left: 4vw;
+   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .button svg {
     height: 12px;
     margin-right: .5vw;
+    color: #333
 }
 
 @media only screen and (max-width: 991px) {

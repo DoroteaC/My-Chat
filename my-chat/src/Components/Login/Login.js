@@ -92,6 +92,7 @@ const Login = (props) => {
               type="submit"
               disabled={!formIsValid}
               onClick={submitUsernameHandler}
+              className={styles.loginButton}
             >
               <span className="buttonText">Submit</span>
             </Button>

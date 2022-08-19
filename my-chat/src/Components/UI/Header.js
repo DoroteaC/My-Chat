@@ -63,7 +63,7 @@ const Header = (props) => {
           skinTone={skin}
         />
           <Button className={styles.button} onClick={logoutHandler}>
-           <AiOutlineLogout style={{ color: 'white' }} /> Logout
+           <AiOutlineLogout style={{ color: '#333' }} /> Logout
           </Button>
           <Button className={styles.button} onClick={resetMessages}>
             Reset 

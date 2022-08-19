@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 // // import Login from "./Components/Login/Login";
@@ -7,11 +7,15 @@ import "./App.css";
 import Chat from "./Components/Chat/Chat";
 import Login from "./Components/Login/Login";
 import Header from "./Components/UI/Header";
-import {userActions} from './Components/Redux/Redux'
-
+import { userActions } from "./Components/Redux/Redux";
 
 function App(props) {
-  const drone = new window.Scaledrone("fH47iOzfM4qeMFdD");
+  const username = useSelector((state) => state.user.username);
+  const avatar = useSelector((state) => state.avatar);
+   const drone = new window.Scaledrone("hvHGBlXg6pSEW2ZP", {data: {user: username, avatar}});
+    const room = drone.subscribe("observable-general");
+  
+
   const dispatch = useDispatch();
   const [userIsActive, setUserIsActive] = useState(false);
   // const [thisUser, setThisUser] = useState('');
@@ -23,13 +27,20 @@ function App(props) {
     setUserIsActive(false);
   };
 
-return (
-   <div className="App">
-        {userIsActive === true  ? <Header onSubmit={setUserInactive} drone={drone}></Header> : <Header></Header>}
-        {userIsActive === true ? <Chat drone={drone} /> : <Login onSubmit={setUser} drone={drone} />}
-      </div>
-)
-
+  return (
+    <div className="App">
+      {userIsActive === true ? (
+        <Header onSubmit={setUserInactive} drone={drone}></Header>
+      ) : (
+        <Header></Header>
+      )}
+      {userIsActive === true ? (
+        <Chat drone={drone} room={room} />
+      ) : (
+        <Login onSubmit={setUser} drone={drone} />
+      )}
+    </div>
+  );
 }
 
 export default App;

@@ -1,4 +1,3 @@
-
 .clothingPicker {
     height: 30px;
     display: flex;
@@ -16,7 +15,7 @@
 }
 .clothingPicker button span {
     height: auto;
-    
+
 }
 .clothingPicker button svg{
     color: black;

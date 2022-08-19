@@ -1,13 +1,13 @@
-
-.span {
-    margin-right: 1vw;
-}
 .genderForm {
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-
+.genderForm div{display: flex;
+    flex-direction: row;
+}
 
 .genderForm button {
     height:4vh;

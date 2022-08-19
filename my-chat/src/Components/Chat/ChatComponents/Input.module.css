@@ -1,8 +1,13 @@
 .inputForm {display:flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     align-self: flex-end;
     width: 100%;
-    border-top:  2px solid #144c9af7
+    height:60px;
+    border-top:  2px solid #144c9af7;
+    padding-right: 2vw;
+    padding-bottom: 1vh;
 } 
 
 .inputForm input {
@@ -10,14 +15,24 @@
     background-color: transparent;
     border: none;
     margin: 2vh 1vw 1vh 2vw;
-   height: 100%;
-   padding: 1vh 0;
-   color: #333;
+    width: 90%;
+    padding: 1vh 0;
+    color: #666;
 }
 .inputForm input:focus {
     border: none;
     outline: none;
 }
-.inputForm button{
-    flex-grow: 1;
+.inputButton{
+    height:40px !important;
+    width: 40px !important;
+    padding: 0 !important;
+    border-radius: 20px !important;
+    background-color: #144c9af7 !important;
+}
+
+.inputForm svg {
+    height: 25px;
+    width: 25px;
+    color:whitesmoke
 }

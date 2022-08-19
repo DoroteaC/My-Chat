@@ -17,19 +17,25 @@ const Gender = () => {
   return (
     <div className={styles.genderForm}>
       <span className={styles.span}>Gender</span>
-
-      <button
-        className={styles.chest}
-        id="chest"
-        value="chest"
-        onClick={genderHandler}
-      ><BsGenderMale  style={{color:'#05D6D9'}}  /></button>
-      <button
-        className={styles.breasts}
-        id="breasts"
-        value="breasts"
-        onClick={genderHandler}
-      > <BsGenderFemale style={{color:'#B91372'}}/></button>
+      <div>
+        <button
+          className={styles.chest}
+          id="chest"
+          value="chest"
+          onClick={genderHandler}
+        >
+          <BsGenderMale style={{ color: "#05D6D9" }} />
+        </button>
+        <button
+          className={styles.breasts}
+          id="breasts"
+          value="breasts"
+          onClick={genderHandler}
+        >
+          {" "}
+          <BsGenderFemale style={{ color: "#B91372" }} />
+        </button>
+      </div>
     </div>
   );
 };
