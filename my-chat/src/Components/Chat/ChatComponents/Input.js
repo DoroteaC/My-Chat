@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
 
-import {AiOutlineArrowUp} from "react-icons/ai";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 const Input = (props) => {
   const dispatch = useDispatch();
@@ -23,13 +23,16 @@ const Input = (props) => {
   const beard = useSelector((state) => state.avatar.beard);
   const clothing = useSelector((state) => state.avatar.clothing);
   const clothingColor = useSelector((state) => state.avatar.clothingColor);
-
   const [message, setMessage] = useState("");
   const [sameSender, setSameSender] = useState(false);
 
   const changeMessageHandler = (event) => {
     setMessage(event.target.value);
-if (id === lastUserId){setSameSender(true)} else {setSameSender(false)}
+    if (id === lastUserId) {
+      setSameSender(true);
+    } else {
+      setSameSender(false);
+    }
     dispatch(
       messageActions.currentMessage({
         text: event.target.value,
@@ -55,15 +58,27 @@ if (id === lastUserId){setSameSender(true)} else {setSameSender(false)}
 
   const buttonHandler = (event) => {
     event.preventDefault();
-    props.onSubmit(event);
-    console.log(input);
-    setMessage("");
+    if (message.trim().length === 0) {
+      console.log("empty message");
+      return;
+    } else {
+      props.onSubmit(event);
+      console.log(input);
+      setMessage("");
+    }
   };
 
   return (
     <form className={styles.inputForm} onSubmit={buttonHandler}>
-      <input value={message} onChange={changeMessageHandler} placeholder='Start blubbing...'></input>
-      <Button id={styles.messageInputButton} className={styles.inputButton}> <AiOutlineArrowUp/> </Button>
+      <input
+        value={message}
+        onChange={changeMessageHandler}
+        placeholder="Start blubbing..."
+      ></input>
+      <Button id={styles.messageInputButton} className={styles.inputButton}>
+        {" "}
+        <AiOutlineArrowUp />{" "}
+      </Button>
     </form>
   );
 };

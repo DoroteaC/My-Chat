@@ -11,7 +11,7 @@ import {userActions} from './Components/Redux/Redux'
 
 
 function App(props) {
-  const drone = new window.Scaledrone("fH47iOzfM4qeMFdD");
+  
   const dispatch = useDispatch();
   const [userIsActive, setUserIsActive] = useState(false);
   // const [thisUser, setThisUser] = useState('');

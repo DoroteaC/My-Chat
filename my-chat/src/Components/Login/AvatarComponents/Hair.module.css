@@ -7,8 +7,6 @@
 }
 
 .hairPicker button {
-    height:4vh;
-    width: 4vh;
    display: flex;
    align-items: flex-start;
     background-color: transparent;
