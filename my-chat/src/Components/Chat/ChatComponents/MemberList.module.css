@@ -1,5 +1,5 @@
 .memberList {
-    background: red;
+   
 }
 
 .memberListItem {
@@ -17,6 +17,7 @@
     padding-top: 1vh;
     display: none;
     transition:  .5s;
+    color: aliceblue
 }
 
 .memberListAvatar:hover + .memberListUsername {

@@ -1,7 +1,7 @@
 import { BigHead } from "@bigheads/core";
 import { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { messageActions } from "../../Redux/Redux";
+import { membersActions, messageActions } from "../../Redux/Redux";
 import "./Messages.css";
 
 const Messages = (props, message) => {
@@ -10,18 +10,18 @@ const Messages = (props, message) => {
   const allMessages = useSelector((state) => state.message.allMessages);
   const userId = useSelector((state) => state.user.id);
   const lastMember = useSelector((state) => state.members.lastMember);
+  const newMember = useSelector((state) => state.members.newMember);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-  const [showElement,setShowElement] = useState(false);
-  useEffect(() => {
-    if (props.newMember) {
-      setShowElement(true)}else {
-      setTimeout(function () {
-        setShowElement(false)
-      }, 1000);
-    }
-  }, []);
+    useEffect(() => {
+      if(newMember){setTimeout(function () {
+        dispatch(membersActions.newMember(false));
+      }, 3000);}
+        
+    }, [newMember]);
+  
+  
 
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const Messages = (props, message) => {
         }
         return renderMessage(m, isSameSender);
       })}
-      <li className='lastLi' ref={messagesEndRef}> {showElement&& <p> {lastMember.clientData.username} just joined</p>}</li>
+      <li className='lastLi' ref={messagesEndRef}> {newMember&& <p> {lastMember.clientData.username} just joined</p>}</li>
     </ul>
   );
 };

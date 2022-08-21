@@ -42,6 +42,11 @@ function App(props) {
         // clothingColor: clothingColor,
       },
     });
+    drone.on("close", async (event) => {
+      drone = undefined;
+      room = undefined;
+      console.log("Drone disconnected");
+    });
   }
   if(drone && room == undefined){
     room = drone.subscribe("observable-general");

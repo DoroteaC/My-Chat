@@ -1,19 +1,19 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
-export const members = []
-
+export const members = [];
 
 const membersInitial = {
   allMembers: [],
-  currentMember : undefined,
-  lastMember:[]
-}
+  currentMember: undefined,
+  lastMember: [],
+  newMember: false,
+};
 
 const messageInitial = {
-  message: '',
+  message: "",
   allMessages: [],
-  currentMessage : [],
-  lastId:''
-}
+  currentMessage: [],
+  lastId: "",
+};
 const avatarInitial = {
   gender: "chest",
   hairColor: "brown",
@@ -29,68 +29,80 @@ const avatarInitial = {
 const userInitial = {
   username: "",
   isActive: 0,
-  userColor: '',
-  id: '',
+  userColor: "",
+  id: "",
 };
 
 const membersSlice = createSlice({
-  name: 'members',
+  name: "members",
   initialState: membersInitial,
   reducers: {
-    addMember(state,action){
-      let existsInArray = state.allMembers.some(x => x.id == action.payload.id);
-      if(!existsInArray){
+    addMember(state, action) {
+      let existsInArray = state.allMembers.some(
+        (x) => x.id == action.payload.id
+      );
+      if (!existsInArray) {
         state.allMembers = [...state.allMembers, action.payload];
       }
     },
-    addMembers(state, action){
-      state.allMembers = [...state.allMembers, ...action.payload]
+    addMembers(state, action) {
+      state.allMembers = [...state.allMembers, ...action.payload];
     },
-    removeMember(state, action){
-      state.allMembers = state.allMembers.filter(x => x.id != action.payload.id);
+    removeMember(state, action) {
+      state.allMembers = state.allMembers.filter(
+        (x) => x.id != action.payload.id
+      );
     },
-    currentMember(state,action){
+    currentMember(state, action) {
       state.currentMember = action.payload;
     },
-    lastMember(state,action){
-      state.lastMember=action.payload
+    lastMember(state, action) {
+      state.lastMember = action.payload;
     },
-    reset () {
+
+    newMember(state, action) {
+      state.newMember = action.payload;
+    },
+    reset() {
       return {
         ...membersInitial,
       };
-    }
-  }
-})
+    },
+  },
+});
 const messageSlice = createSlice({
-  name: 'message',
+  name: "message",
   initialState: messageInitial,
   reducers: {
-    addMessage(state,action){
-      state.allMessages = [...state.allMessages, action.payload]
+    addMessage(state, action) {
+      state.allMessages = [...state.allMessages, action.payload];
     },
-    currentMessage(state,action){
-      state.message = action.payload
+    currentMessage(state, action) {
+      state.message = action.payload;
     },
-    addCurrentMessage(state,action){
-      state.currentMessage = action.payload
+    addCurrentMessage(state, action) {
+      state.currentMessage = action.payload;
     },
-    saveLastId (state,action){
-      state.lastId =action.payload
+    saveLastId(state, action) {
+      state.lastId = action.payload;
     },
-    reset () {
+    reset() {
       return {
         ...messageInitial,
       };
-    }
-  }
-})
+    },
+  },
+});
 const avatarSlice = createSlice({
   name: "avatar",
   initialState: avatarInitial,
   reducers: {
     gender(state, action) {
-      if(action.payload === undefined) {state.gender = 'chest'} else{state.gender= action.payload};
+      if (action.payload === undefined) {
+        state.gender = "chest";
+      } else {
+        state.gender = action.payload;
+      }
     },
     hairColor(state, action) {
       state.hairColor = action.payload;
@@ -127,8 +139,6 @@ const avatarSlice = createSlice({
   },
 });
 
-
-
 const userSlice = createSlice({
   name: "user",
   initialState: userInitial,
@@ -139,10 +149,10 @@ const userSlice = createSlice({
     isActive(state, action) {
       state.isActive = action.payload;
     },
-    setColor (state,action) {
+    setColor(state, action) {
       state.userColor = action.payload;
     },
-    setId (state,action){
+    setId(state, action) {
       state.id = action.payload;
     },
     reset() {
@@ -165,6 +175,5 @@ export const avatarActions = avatarSlice.actions;
 export const userActions = userSlice.actions;
 export const messageActions = messageSlice.actions;
 export const membersActions = membersSlice.actions;
-
 
 export default store;

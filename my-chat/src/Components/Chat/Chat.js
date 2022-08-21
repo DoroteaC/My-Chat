@@ -14,12 +14,7 @@ const Chat = (props) => {
   const input = useSelector((state) => state.message.message);
   const messages = useSelector((state) => state.message.allMessages);
   const members = useSelector((state) => state.members.allMembers);
-  const [newMember, setNewMember] = useState(false);
-  useEffect(() => {
-      setTimeout(function () {
-        setNewMember(false)
-      }, 2000);
-  }, []);
+  
   const drone = props.drone;
   const room = props.room;
   useEffect(() => {
@@ -75,7 +70,7 @@ const Chat = (props) => {
     });
     room.on("member_join", function (member) {
       console.log("On member join");
-      setNewMember(true);
+     dispatch(membersActions.newMember(true));
       dispatch(membersActions.addMember(member));
       dispatch(membersActions.lastMember(member));
     });
@@ -97,7 +92,7 @@ const Chat = (props) => {
     <div className={styles.chatContainer}>
       <div className={styles.mainChatSpace}>
         <div className={styles.chatSpace}>
-          <Messages newMember={newMember} drone={drone}></Messages>
+          <Messages drone={drone}></Messages>
           {/* <ul>
             <li> Poruka 1 </li>
             <li> Poruka 1 </li>
