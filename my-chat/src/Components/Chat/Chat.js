@@ -7,6 +7,7 @@ import "./ChatS.css";
 import { membersActions, messageActions, userActions } from "../Redux/Redux";
 import React, { useEffect,useState } from "react";
 import MemberList from "./ChatComponents/MemberList";
+
 let allmembers = [];
 const Chat = (props) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Chat = (props) => {
   const input = useSelector((state) => state.message.message);
   const messages = useSelector((state) => state.message.allMessages);
   const members = useSelector((state) => state.members.allMembers);
-  
+  const setInactiveUser = () => {props.onSubmit()};
   const drone = props.drone;
   const room = props.room;
   useEffect(() => {
@@ -104,8 +105,8 @@ const Chat = (props) => {
           <Input drone={drone} onSubmit={buttonHandler}></Input>
         </div>
       </div>
-      <div className={styles.chatOnline}>
-        <MemberList drone={drone} room={room} />
+      <div className={styles.chatOnline}> 
+        <MemberList onSubmit={setInactiveUser} drone={drone} room={room} />
         {/* <ul>
           <li> Alen</li>
           <li> Luka 1 </li>

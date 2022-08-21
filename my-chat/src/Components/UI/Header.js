@@ -67,12 +67,12 @@ const Header = (props) => {
             mouth={mouth}
             skinTone={skin}
           />
-          <Button className={styles.button} onClick={logoutHandler}>
+          {/* <Button className={styles.button} onClick={logoutHandler}>
             <AiOutlineLogout style={{ color: '#333' }} /> Logout
           </Button>
           <Button className={styles.button} onClick={resetMessages}>
             Reset
-          </Button>
+          </Button> */}
         </Wrapper>
 
         )}

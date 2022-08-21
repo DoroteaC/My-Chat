@@ -66,12 +66,12 @@ function App(props) {
   return (
     <div className="App">
       {userIsActive === true ? (
-        <Header onSubmit={setUserInactive} drone={drone}></Header>
+        <Header  drone={drone}></Header>
       ) : (
         <Header></Header>
       )}
       {userIsActive === true ? (
-        <Chat drone={drone} room={room} />
+        <Chat onSubmit={setUserInactive} drone={drone} room={room} />
       ) : (
         <Login onSubmit={setUser} drone={drone} />
       )}
