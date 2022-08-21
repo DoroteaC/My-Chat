@@ -1,34 +1,43 @@
 import { BigHead } from "@bigheads/core";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { messageActions } from "../../Redux/Redux";
 import "./Messages.css";
 
-const Messages = (message) => {
+const Messages = (props, message) => {
   const dispatch = useDispatch();
   const messagesEndRef = useRef(null);
   const allMessages = useSelector((state) => state.message.allMessages);
   const userId = useSelector((state) => state.user.id);
-const lastMember = useSelector((state)=> state.members.LastMember);
+  const lastMember = useSelector((state) => state.members.lastMember);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+  const [showElement,setShowElement] = useState(false);
+  useEffect(() => {
+    if (props.newMember) {
+      setShowElement(true)}else {
+      setTimeout(function () {
+        setShowElement(false)
+      }, 1000);
+    }
+  }, []);
+
+
   useEffect(() => {
     scrollToBottom();
   }, [message]);
-  const renderMessage = (message) => {
+  const renderMessage = (message, isSameSender) => {
     let gender = message.avatar.gender;
     const messageFromMe = message.id === userId;
     const className = messageFromMe
       ? "Messages-message currentMember"
       : "Messages-message";
-    dispatch(messageActions.saveLastId(message.id));
-    if(gender===undefined)
-{gender = 'chest'};    
-return (
+    if (gender === undefined) { gender = 'chest' };
+    return (
       <li className={className} key={Math.random()}>
         <span className="avatar">
-          {!message.sameSender && (
+          {!isSameSender && (
             <BigHead
               className="avatarsvg"
               body={gender}
@@ -51,7 +60,7 @@ return (
           )}{" "}
         </span>
         <div className="Message-content">
-          {!message.sameSender && (
+          {!isSameSender && (
             <div className="username">{message.username}</div>
           )}
           <div className="text" style={{ backgroundColor: message.userColor }}>
@@ -64,8 +73,17 @@ return (
 
   return (
     <ul className="Messages-list">
-      {allMessages.map((m) => renderMessage(m))}
-      <li className='lastLi'ref={messagesEndRef}> <p> just joined.</p> </li>
+      {allMessages.map((m, index) => {
+        let isSameSender = false;
+        if(index > 0){
+          let previousMessage = allMessages[index-1];
+          if(previousMessage.clientId == m.clientId){
+            isSameSender = true;
+          }
+        }
+        return renderMessage(m, isSameSender);
+      })}
+      <li className='lastLi' ref={messagesEndRef}> {showElement&& <p> {lastMember.clientData.username} just joined</p>}</li>
     </ul>
   );
 };

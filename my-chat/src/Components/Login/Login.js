@@ -56,7 +56,6 @@ const Login = (props) => {
     dispatch(userActions.setColor(color));
     console.log(color)
     dispatch(userActions.user(username));
-    dispatch(userActions.setId(props.drone.clientId));
 
     console.log(username);
   };

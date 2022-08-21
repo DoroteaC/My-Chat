@@ -4,7 +4,7 @@ export const members = []
 
 const membersInitial = {
   allMembers: [],
-  currentMember : [],
+  currentMember : undefined,
   lastMember:[]
 }
 
@@ -38,11 +38,19 @@ const membersSlice = createSlice({
   initialState: membersInitial,
   reducers: {
     addMember(state,action){
-        state.allMembers =  action.payload
-      
+      let existsInArray = state.allMembers.some(x => x.id == action.payload.id);
+      if(!existsInArray){
+        state.allMembers = [...state.allMembers, action.payload];
+      }
+    },
+    addMembers(state, action){
+      state.allMembers = [...state.allMembers, ...action.payload]
+    },
+    removeMember(state, action){
+      state.allMembers = state.allMembers.filter(x => x.id != action.payload.id);
     },
     currentMember(state,action){
-
+      state.currentMember = action.payload;
     },
     lastMember(state,action){
       state.lastMember=action.payload

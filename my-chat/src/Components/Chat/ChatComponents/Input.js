@@ -3,7 +3,7 @@ import styles from "./Input.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addAvatarActions, messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
-import {AiOutlineArrowUp} from "react-icons/ai";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 const Input = (props) => {
   const dispatch = useDispatch();
@@ -28,9 +28,10 @@ const Input = (props) => {
 
   const changeMessageHandler = (event) => {
     setMessage(event.target.value);
-if (id === lastUserId){setSameSender(true)} else {setSameSender(false)}
+    if (id === lastUserId) { setSameSender(true) } else { setSameSender(false) }
     dispatch(
       messageActions.currentMessage({
+        clientId: id,
         text: event.target.value,
         username,
         userColor,
@@ -60,8 +61,8 @@ if (id === lastUserId){setSameSender(true)} else {setSameSender(false)}
 
   return (
     <form className={styles.inputForm} onSubmit={buttonHandler}>
-       <input value={message} onChange={changeMessageHandler} placeholder='Start blubbing...'></input>
-      <Button className={styles.inputButton}> <AiOutlineArrowUp/> </Button>
+      <input value={message} onChange={changeMessageHandler} placeholder='Start blubbing...'></input>
+      <Button className={styles.inputButton}> <AiOutlineArrowUp /> </Button>
     </form>
   );
 };

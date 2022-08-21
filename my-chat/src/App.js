@@ -25,8 +25,8 @@ function App(props) {
 
   const username = useSelector((state) => state.user.username);
   const avatar = useSelector((state) => state.avatar);
-  if (username.trim().length > 0) {
-    drone = new window.Scaledrone("oEBhbUFThklEOEw5", {
+  if (username.trim().length > 0 && drone == undefined) {
+    drone = new window.Scaledrone("b6RtdAak5Y0r6lir", {
       data: {
         username: username,
         avatar: avatar
@@ -43,7 +43,7 @@ function App(props) {
       },
     });
   }
-  if(drone){
+  if(drone && room == undefined){
     room = drone.subscribe("observable-general");
   }
 
