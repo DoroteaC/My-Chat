@@ -5,7 +5,8 @@
     align-items: center;
     flex-direction: column;
 }
-.genderForm div{display: flex;
+.genderForm div{
+    display: flex;
     flex-direction: row;
 }
 
@@ -23,6 +24,8 @@
 }
 
 .genderForm button svg {
-   height: 2vh !important
+   height: 2vh !important;
+   margin: 0;
+   padding:0;
 }
 

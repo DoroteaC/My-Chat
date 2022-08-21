@@ -4,17 +4,24 @@ import Messages from "./ChatComponents/Messages";
 import Input from "./ChatComponents/Input";
 import styles from "./Chat.module.css";
 import "./ChatS.css";
-import { messageActions } from "../Redux/Redux";
-import React from "react";
-
+import { membersActions, messageActions } from "../Redux/Redux";
+import React, { useEffect } from "react";
+import MemberList from "./ChatComponents/MemberList";
+let allmembers = [];
 const Chat = (props) => {
   const dispatch = useDispatch();
   const usersname = useSelector((state) => state.user.username);
   const input = useSelector((state) => state.message.message);
   const messages = useSelector((state) => state.message.allMessages);
+  const members = useSelector((state)=> state.members.allMembers)
+
+  
+
+
+
   const drone = props.drone;
   const room = props.room;
-  React.useEffect(() => {
+  useEffect(() => {
     drone.on("open", async (error) => {
       if (error) {
         Swal.fire({
@@ -55,6 +62,28 @@ const Chat = (props) => {
       dispatch(messageActions.addMessage(message.data.text));
       dispatch(messageActions.addCurrentMessage(message.data.text));
     });
+    room.on('members', function(members) {
+      allmembers = members;
+      console.log("On members");
+      members.forEach(member => {
+        dispatch(membersActions.addMember(allmembers));
+      });
+      console.log(allmembers)
+    });
+    room.on('member_join', function(member) {
+      console.log("On member join");
+      
+      if(members.find(x => x.id === member.id)) {
+        allmembers.push(member);
+        dispatch(membersActions.addMember(allmembers));
+      
+    }
+    dispatch(membersActions.lastMember(member));
+  console.log(allmembers)});
+    room.on('member_leave', function(member) {
+      // Member object
+    });
+   
   }, []);
   
 
@@ -84,12 +113,13 @@ const Chat = (props) => {
         </div>
       </div>
       <div className={styles.chatOnline}>
-        <ul>
+        <MemberList drone={drone} room={room}/>
+        {/* <ul>
           <li> Alen</li>
           <li> Luka 1 </li>
           <li> Tatjana </li>
           <li> Dalia </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

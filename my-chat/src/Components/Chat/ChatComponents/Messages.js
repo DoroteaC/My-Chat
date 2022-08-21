@@ -9,6 +9,7 @@ const Messages = (message) => {
   const messagesEndRef = useRef(null);
   const allMessages = useSelector((state) => state.message.allMessages);
   const userId = useSelector((state) => state.user.id);
+const lastMember = useSelector((state)=> state.members.LastMember);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -16,18 +17,21 @@ const Messages = (message) => {
     scrollToBottom();
   }, [message]);
   const renderMessage = (message) => {
+    let gender = message.avatar.gender;
     const messageFromMe = message.id === userId;
     const className = messageFromMe
       ? "Messages-message currentMember"
       : "Messages-message";
     dispatch(messageActions.saveLastId(message.id));
-    return (
+    if(gender===undefined)
+{gender = 'chest'};    
+return (
       <li className={className} key={Math.random()}>
         <span className="avatar">
           {!message.sameSender && (
             <BigHead
               className="avatarsvg"
-              body={message.avatar.gender}
+              body={gender}
               accessory="none"
               circleColor="blue"
               clothing={message.avatar.clothing}
@@ -61,7 +65,7 @@ const Messages = (message) => {
   return (
     <ul className="Messages-list">
       {allMessages.map((m) => renderMessage(m))}
-      <li className='lastLi'ref={messagesEndRef}> Proba </li>
+      <li className='lastLi'ref={messagesEndRef}> <p> just joined.</p> </li>
     </ul>
   );
 };

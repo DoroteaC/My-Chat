@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Input.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { messageActions } from "../../Redux/Redux";
+import { addAvatarActions, messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
 import {AiOutlineArrowUp} from "react-icons/ai";
 
@@ -51,7 +51,6 @@ if (id === lastUserId){setSameSender(true)} else {setSameSender(false)}
       })
     );
   };
-
   const buttonHandler = (event) => {
     event.preventDefault();
     props.onSubmit(event);

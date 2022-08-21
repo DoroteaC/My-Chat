@@ -11,7 +11,7 @@ const Header = (props) => {
   const activeUser = useSelector((state) => state.user.isActive);
   const username = useSelector((state) => state.user.username);
   const BluWhite1 = require("../Media/Blu/1x/1x/BluWhite1.png");
-  const gender = useSelector((state) => state.avatar.gender);
+  let gender = useSelector((state) => state.avatar.gender);
   const hairColor = useSelector((state) => state.avatar.hairColor);
   const hairStyle = useSelector((state) => state.avatar.hairStyle);
   const eyesStyle = useSelector((state) => state.avatar.eyes);
@@ -23,7 +23,10 @@ const Header = (props) => {
   const clothingColor = useSelector((state) => state.avatar.clothingColor);
   const drone = props.drone;
   const logoutHandler = (event) => {
-    
+    event.preventDefault();
+    if(gender===undefined){
+      gender = 'chest'
+    }
     props.onSubmit();
     dispatch(userActions.reset());
     dispatch(avatarActions.reset());

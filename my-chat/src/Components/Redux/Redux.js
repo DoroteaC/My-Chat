@@ -1,6 +1,13 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 export const members = []
 
+
+const membersInitial = {
+  allMembers: [],
+  currentMember : [],
+  lastMember:[]
+}
+
 const messageInitial = {
   message: '',
   allMessages: [],
@@ -19,7 +26,6 @@ const avatarInitial = {
   clothing: "shirt",
   clothingColor: "blue",
 };
-
 const userInitial = {
   username: "",
   isActive: 0,
@@ -27,6 +33,27 @@ const userInitial = {
   id: '',
 };
 
+const membersSlice = createSlice({
+  name: 'members',
+  initialState: membersInitial,
+  reducers: {
+    addMember(state,action){
+        state.allMembers =  action.payload
+      
+    },
+    currentMember(state,action){
+
+    },
+    lastMember(state,action){
+      state.lastMember=action.payload
+    },
+    reset () {
+      return {
+        ...membersInitial,
+      };
+    }
+  }
+})
 const messageSlice = createSlice({
   name: 'message',
   initialState: messageInitial,
@@ -55,7 +82,7 @@ const avatarSlice = createSlice({
   initialState: avatarInitial,
   reducers: {
     gender(state, action) {
-      state.gender = action.payload;
+      if(action.payload === undefined) {state.gender = 'chest'} else{state.gender= action.payload};
     },
     hairColor(state, action) {
       state.hairColor = action.payload;
@@ -92,6 +119,8 @@ const avatarSlice = createSlice({
   },
 });
 
+
+
 const userSlice = createSlice({
   name: "user",
   initialState: userInitial,
@@ -121,10 +150,13 @@ const store = configureStore({
     avatar: avatarSlice.reducer,
     user: userSlice.reducer,
     message: messageSlice.reducer,
+    members: membersSlice.reducer,
   },
 });
 export const avatarActions = avatarSlice.actions;
 export const userActions = userSlice.actions;
-export const messageActions = messageSlice.actions
+export const messageActions = messageSlice.actions;
+export const membersActions = membersSlice.actions;
+
 
 export default store;

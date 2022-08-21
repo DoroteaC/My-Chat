@@ -9,12 +9,43 @@ import Login from "./Components/Login/Login";
 import Header from "./Components/UI/Header";
 import { userActions } from "./Components/Redux/Redux";
 
+let drone = undefined;
+let room = undefined;
 function App(props) {
+  const gender = useSelector((state) => state.avatar.gender);
+  const hairColor = useSelector((state) => state.avatar.hairColor);
+  const hair = useSelector((state) => state.avatar.hairStyle);
+  const eyes = useSelector((state) => state.avatar.eyes);
+  const eyebrows = useSelector((state) => state.avatar.eyebrows);
+  const mouth = useSelector((state) => state.avatar.mouth);
+  const skin = useSelector((state) => state.avatar.skin);
+  const beard = useSelector((state) => state.avatar.beard);
+  const clothing = useSelector((state) => state.avatar.clothing);
+  const clothingColor = useSelector((state) => state.avatar.clothingColor);
+
   const username = useSelector((state) => state.user.username);
   const avatar = useSelector((state) => state.avatar);
-   const drone = new window.Scaledrone("hvHGBlXg6pSEW2ZP", {data: {user: username, avatar}});
-    const room = drone.subscribe("observable-general");
-  
+  if (username.trim().length > 0) {
+    drone = new window.Scaledrone("oEBhbUFThklEOEw5", {
+      data: {
+        username: username,
+        avatar: avatar
+        // gender: gender,
+        // hairColor: hairColor,
+        // hair: hair,
+        // eyes: eyes,
+        // eyebrows: eyebrows,
+        // mouth: mouth,
+        // skin: skin,
+        // beard: beard,
+        // clothing: clothing,
+        // clothingColor: clothingColor,
+      },
+    });
+  }
+  if(drone){
+    room = drone.subscribe("observable-general");
+  }
 
   const dispatch = useDispatch();
   const [userIsActive, setUserIsActive] = useState(false);
