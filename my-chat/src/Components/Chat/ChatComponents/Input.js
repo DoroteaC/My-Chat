@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Input.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addAvatarActions, messageActions } from "../../Redux/Redux";
+import { messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
 import { AiOutlineArrowUp } from "react-icons/ai";
 
 const Input = (props) => {
   const dispatch = useDispatch();
-  const input = useSelector((state) => state.message.message);
+  // const input = useSelector((state) => state.message.message);
   const username = useSelector((state) => state.user.username);
   const userColor = useSelector((state) => state.user.userColor);
   const lastUserId = useSelector((state) => state.message.lastId);
@@ -55,7 +55,7 @@ const Input = (props) => {
   const buttonHandler = (event) => {
     event.preventDefault();
     props.onSubmit(event);
-    console.log(input);
+    // console.log(input);
     setMessage("");
   };
 

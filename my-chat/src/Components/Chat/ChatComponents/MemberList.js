@@ -1,5 +1,5 @@
 import { BigHead } from "@bigheads/core";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { membersActions,userActions, avatarActions } from "../../Redux/Redux";
 import './MemberList.css'
@@ -17,7 +17,7 @@ const drone = props.drone;
     dispatch(membersActions.reset());
     dispatch(userActions.reset());
     dispatch(avatarActions.reset());
-    drone.unsubscribe('observable-general');
+    // drone.unsubscribe('observable-general');
     drone.close();
     // console.log(activeUser);
   };

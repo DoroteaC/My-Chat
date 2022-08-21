@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 // // import Login from "./Components/Login/Login";
@@ -8,47 +8,45 @@ import Chat from "./Components/Chat/Chat";
 import Login from "./Components/Login/Login";
 import Header from "./Components/UI/Header";
 import { userActions } from "./Components/Redux/Redux";
+import Swal from "sweetalert2";
 
 let drone = undefined;
 let room = undefined;
 function App(props) {
-  const gender = useSelector((state) => state.avatar.gender);
-  const hairColor = useSelector((state) => state.avatar.hairColor);
-  const hair = useSelector((state) => state.avatar.hairStyle);
-  const eyes = useSelector((state) => state.avatar.eyes);
-  const eyebrows = useSelector((state) => state.avatar.eyebrows);
-  const mouth = useSelector((state) => state.avatar.mouth);
-  const skin = useSelector((state) => state.avatar.skin);
-  const beard = useSelector((state) => state.avatar.beard);
-  const clothing = useSelector((state) => state.avatar.clothing);
-  const clothingColor = useSelector((state) => state.avatar.clothingColor);
+ 
 
   const username = useSelector((state) => state.user.username);
   const avatar = useSelector((state) => state.avatar);
-  if (username.trim().length > 0 && drone == undefined) {
+  if (username.trim().length > 0 && drone === undefined) {
     drone = new window.Scaledrone("b6RtdAak5Y0r6lir", {
       data: {
         username: username,
         avatar: avatar
-        // gender: gender,
-        // hairColor: hairColor,
-        // hair: hair,
-        // eyes: eyes,
-        // eyebrows: eyebrows,
-        // mouth: mouth,
-        // skin: skin,
-        // beard: beard,
-        // clothing: clothing,
-        // clothingColor: clothingColor,
+      
       },
     });
     drone.on("close", async (event) => {
       drone = undefined;
       room = undefined;
-      console.log("Drone disconnected");
+      // console.log("Drone disconnected");
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-right",
+        iconColor: "white",
+        customClass: {
+          popup: "colored-toast",
+        },
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+      });
+      await Toast.fire({
+        icon: "info",
+        title: "Disconnected! Login again.",
+      });
     });
   }
-  if(drone && room == undefined){
+  if(drone && room === undefined){
     room = drone.subscribe("observable-general");
   }
 

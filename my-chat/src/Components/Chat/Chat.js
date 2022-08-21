@@ -5,17 +5,16 @@ import Input from "./ChatComponents/Input";
 import styles from "./Chat.module.css";
 import "./ChatS.css";
 import { membersActions, messageActions, userActions } from "../Redux/Redux";
-import React, { useEffect,useState } from "react";
+import React, { useEffect } from "react";
 import MemberList from "./ChatComponents/MemberList";
 
-let allmembers = [];
 const Chat = (props) => {
   const dispatch = useDispatch();
   const usersname = useSelector((state) => state.user.username);
   const input = useSelector((state) => state.message.message);
-  const messages = useSelector((state) => state.message.allMessages);
-  const members = useSelector((state) => state.members.allMembers);
-  const setInactiveUser = () => {props.onSubmit()};
+  const setInactiveUser = () => {
+    props.onSubmit();
+  };
   const drone = props.drone;
   const room = props.room;
   useEffect(() => {
@@ -51,18 +50,14 @@ const Chat = (props) => {
     room.on("open", (error) => {
       if (error) {
         console.log(error);
-      } else {
-        console.log("joined room");
       }
     });
     room.on("message", (message) => {
-      console.log(message);
       dispatch(messageActions.addMessage(message.data.text));
       dispatch(messageActions.saveLastId(message.clientId));
       dispatch(messageActions.addCurrentMessage(message.data.text));
     });
     room.on("members", function (members) {
-      console.log("On members");
       const me = members.find(function (member) {
         return member.id === drone.clientId;
       });
@@ -70,19 +65,19 @@ const Chat = (props) => {
       dispatch(membersActions.addMembers(members));
     });
     room.on("member_join", function (member) {
-      console.log("On member join");
-     dispatch(membersActions.newMember(true));
+      dispatch(membersActions.newMember(true));
       dispatch(membersActions.addMember(member));
       dispatch(membersActions.lastMember(member));
     });
     room.on("member_leave", function (member) {
+      dispatch(membersActions.didLeft(true));
+      dispatch(membersActions.leftMember(member));
       dispatch(membersActions.removeMember(member));
     });
-  }, []);
+  }, [dispatch, drone, room]);
 
   const buttonHandler = (event) => {
     event.preventDefault();
-    console.log(usersname + " pressed send!");
     drone.publish({
       room: "observable-general",
       message: { text: input },
@@ -105,7 +100,7 @@ const Chat = (props) => {
           <Input drone={drone} onSubmit={buttonHandler}></Input>
         </div>
       </div>
-      <div className={styles.chatOnline}> 
+      <div className={styles.chatOnline}>
         <MemberList onSubmit={setInactiveUser} drone={drone} room={room} />
         {/* <ul>
           <li> Alen</li>

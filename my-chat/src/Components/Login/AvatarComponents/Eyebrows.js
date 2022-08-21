@@ -28,8 +28,6 @@ const Eyebrows = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(eyebrowsType[counter]);
       dispatch(avatarActions.eyebrowsType(eyebrowsType[counter]));
     }
   };
@@ -45,8 +43,6 @@ const Eyebrows = () => {
       if (counter < eyebrowsType.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(eyebrowsType[counter]);
       dispatch(avatarActions.eyebrowsType(eyebrowsType[counter]));
     }
   };

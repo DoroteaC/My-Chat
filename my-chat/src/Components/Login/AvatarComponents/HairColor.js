@@ -10,17 +10,8 @@ const HairColor = () => {
     event.preventDefault();
     const color = event.target.value;
     dispatch(avatarActions.hairColor(color));
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
-  //   const colorHair = [
-  //     "blonde",
-  //     "orange",
-  //     "black",
-  //     "white",
-  //     "brown",
-  //     "blue",
-  //     "pink",
-  //   ];
   return (
     <Wrapper>
       <div className={styles.hairColorForm}>

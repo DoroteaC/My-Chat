@@ -32,8 +32,6 @@ const Hair = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(hairStyles[counter]);
       dispatch(avatarActions.hairType(hairStyles[counter]));
     }
   };
@@ -50,8 +48,6 @@ const Hair = () => {
       if (counter < hairStyles.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(hairStyles[counter]);
       dispatch(avatarActions.hairType(hairStyles[counter]));
     }
   };
@@ -60,11 +56,11 @@ const Hair = () => {
     <Wrapper>
       <div className={styles.hairPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <AiOutlineLeft/>
+          <AiOutlineLeft />
         </button>
         <span>Hair Style</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <AiOutlineRight/>
+          <AiOutlineRight />
         </button>
       </div>
     </Wrapper>

@@ -1,7 +1,7 @@
 import { BigHead } from "@bigheads/core";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { membersActions, messageActions } from "../../Redux/Redux";
+import { membersActions} from "../../Redux/Redux";
 import "./Messages.css";
 
 const Messages = (props, message) => {
@@ -11,17 +11,24 @@ const Messages = (props, message) => {
   const userId = useSelector((state) => state.user.id);
   const lastMember = useSelector((state) => state.members.lastMember);
   const newMember = useSelector((state) => state.members.newMember);
+  const someoneLeft = useSelector((state) => state.members.didLeft);
+  const leftMember=useSelector((state) => state.members.leftMember);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
     useEffect(() => {
       if(newMember){setTimeout(function () {
         dispatch(membersActions.newMember(false));
-      }, 3000);}
+      }, 4000);}
         
-    }, [newMember]);
+    }, [dispatch, newMember]);
   
-  
+    useEffect(() => {
+      if(someoneLeft){setTimeout(function () {
+        dispatch(membersActions.didLeft(false));
+      }, 4000);}
+        
+    }, [dispatch, someoneLeft]);
 
 
   useEffect(() => {
@@ -77,13 +84,14 @@ const Messages = (props, message) => {
         let isSameSender = false;
         if(index > 0){
           let previousMessage = allMessages[index-1];
-          if(previousMessage.clientId == m.clientId){
+          if(previousMessage.clientId === m.clientId){
             isSameSender = true;
           }
         }
         return renderMessage(m, isSameSender);
       })}
-      <li className='lastLi' ref={messagesEndRef}> {newMember&& <p> {lastMember.clientData.username} just joined</p>}</li>
+      <li className='newMember' ref={messagesEndRef}> {newMember&& <p> {lastMember.clientData.username} just joined</p>}
+      {someoneLeft&& <p> {leftMember.clientData.username} just left. </p>}</li>
     </ul>
   );
 };

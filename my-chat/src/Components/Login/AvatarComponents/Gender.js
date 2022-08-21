@@ -9,7 +9,7 @@ const Gender = () => {
     event.preventDefault();
     const genderValue = event.target.value;
     dispatch(avatarActions.gender(genderValue));
-    console.log(genderValue)
+    // console.log(genderValue)
   };
   return (
     <div className={styles.genderForm}>

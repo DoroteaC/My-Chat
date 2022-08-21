@@ -6,6 +6,8 @@ const membersInitial = {
   currentMember: undefined,
   lastMember: [],
   newMember: false,
+  leftMember: [],
+  didLeft: false,
 };
 
 const messageInitial = {
@@ -39,7 +41,7 @@ const membersSlice = createSlice({
   reducers: {
     addMember(state, action) {
       let existsInArray = state.allMembers.some(
-        (x) => x.id == action.payload.id
+        (x) => x.id === action.payload.id
       );
       if (!existsInArray) {
         state.allMembers = [...state.allMembers, action.payload];
@@ -50,7 +52,7 @@ const membersSlice = createSlice({
     },
     removeMember(state, action) {
       state.allMembers = state.allMembers.filter(
-        (x) => x.id != action.payload.id
+        (x) => x.id !== action.payload.id
       );
     },
     currentMember(state, action) {
@@ -62,6 +64,12 @@ const membersSlice = createSlice({
 
     newMember(state, action) {
       state.newMember = action.payload;
+    },
+    leftMember(state, action) {
+      state.leftMember = action.payload;
+    },
+    didLeft(state, action) {
+      state.didLeft = action.payload;
     },
     reset() {
       return {
