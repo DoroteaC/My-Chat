@@ -1,6 +1,4 @@
- body .colored-toast.swal2-icon-success {
-    background-color: #144c9af7 !important;
- }
+
  .inputForm {display:flex;
     flex-direction: row;
     justify-content: space-between;
