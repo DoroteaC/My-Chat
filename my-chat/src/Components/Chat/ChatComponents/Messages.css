@@ -1,14 +1,20 @@
 
 .Messages-list {padding:1vh;
-    max-width: 900px;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    list-style: none;
-    padding-left: 0;
-    flex-grow: 1;
-    overflow: auto;
-  }
+  max-width: 900px;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar{
+  opacity:0;
+  background: transparent;
+}
+
   
   .Messages-message {
     display: flex;

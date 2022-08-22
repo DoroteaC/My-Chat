@@ -20,20 +20,16 @@ const Messages = (props, message) => {
       if(newMember){setTimeout(function () {
         dispatch(membersActions.newMember(false));
       }, 4000);}
-        
-    }, [dispatch, newMember]);
-  
-    useEffect(() => {
       if(someoneLeft){setTimeout(function () {
         dispatch(membersActions.didLeft(false));
       }, 4000);}
-        
-    }, [dispatch, someoneLeft]);
-
+      
+    }, [dispatch, newMember,someoneLeft]);
 
   useEffect(() => {
     scrollToBottom();
-  }, [message]);
+  }, [allMessages]);
+
   const renderMessage = (message, isSameSender) => {
     let gender = message.avatar.gender;
     const messageFromMe = message.id === userId;
