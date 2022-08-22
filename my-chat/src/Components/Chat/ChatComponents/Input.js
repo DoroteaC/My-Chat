@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { messageActions } from "../../Redux/Redux";
 import Button from "../../UI/Button";
 import { AiOutlineArrowUp } from "react-icons/ai";
-
+import Swal from "sweetalert2";
 const Input = (props) => {
   const dispatch = useDispatch();
   // const input = useSelector((state) => state.message.message);
@@ -52,8 +52,26 @@ const Input = (props) => {
       })
     );
   };
-  const buttonHandler = (event) => {
+  const buttonHandler = async (event) => {
     event.preventDefault();
+    if(message.trim().length === 0){
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-right",
+        iconColor: "white",
+        customClass: {
+          popup: "colored-toast",
+        },
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+      await Toast.fire({
+        icon: "info",
+        title: "Cannot send empty message.",
+      });
+      return;
+    }
     props.onSubmit(event);
     // console.log(input);
     setMessage("");
