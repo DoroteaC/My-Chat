@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./Login.module.css";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
@@ -43,7 +43,6 @@ const Login = (props) => {
         icon: "error",
         confirmButtonText: "Back",
         confirmButtonColor: "#2f68b6",
-        confirmButtonBorderRadius: 0.6 ,
       });
       // Error Module
       // setError({
@@ -55,11 +54,7 @@ const Login = (props) => {
     props.onSubmit();
     const color = randomColor();
     dispatch(userActions.setColor(color));
-    console.log(color)
     dispatch(userActions.user(username));
-    dispatch(userActions.setId(props.drone.clientId));
-
-    console.log(username);
   };
 
   // const errorHandler = () => {

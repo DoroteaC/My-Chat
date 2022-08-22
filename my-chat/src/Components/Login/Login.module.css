@@ -7,6 +7,7 @@
     align-items: center;
 }
 
+
 .loginCard {
     height: 72vh !important;
 }
@@ -25,7 +26,7 @@
 
 
 .formStyles {
-    height:100%;
+    height:auto;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -60,18 +61,17 @@ form svg {
 }
 
 .loginButton {
-        color: aliceblue;
-       touch-action: manipulation;
-       background-color: #144c9af7;
-        border: .2em solid #103f81f7    
+    color: aliceblue;
+   touch-action: manipulation;
+   background-color: #144c9af7;
+    border: .2em solid #103f81f7    
 }
-  
-  .loginButton:hover {
-    transition: 0.1s;
-    background-color: #245599f7;
-    border: .2em solid #144c9af7 ;
-  }
 
+.loginButton:hover {
+transition: 0.1s;
+background-color: #245599f7;
+border: .2em solid #144c9af7 ;
+}
 @media only screen and (min-width: 768px) {
     .imagesContainer h1 {
         font-size: 2em;

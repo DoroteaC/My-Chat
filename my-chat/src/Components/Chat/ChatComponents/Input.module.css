@@ -1,4 +1,7 @@
-.inputForm {display:flex;
+ body .colored-toast.swal2-icon-success {
+    background-color: #144c9af7 !important;
+ }
+ .inputForm {display:flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -11,19 +14,18 @@
 } 
 
 .inputForm input {
+    flex-grow: 9;
     background-color: transparent;
     border: none;
     margin: 2vh 1vw 1vh 2vw;
-   height: 100%;
-   width: 90%;
-   padding: 1vh 0;
-   color: #666;
+    width: 90%;
+    padding: 1vh 0;
+    color: #666;
 }
 .inputForm input:focus {
     border: none;
     outline: none;
 }
-
 .inputButton{
     height:40px !important;
     width: 40px !important;

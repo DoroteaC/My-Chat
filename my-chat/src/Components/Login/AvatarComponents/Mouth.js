@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Wrapper from "../../Helpers/Wrapper";
 import styles from "./Mouth.module.css";
-import {avatarActions} from '../../Redux/Redux';
+import { avatarActions } from "../../Redux/Redux";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 let counter = 0;
 const Mouth = () => {
@@ -30,8 +30,6 @@ const Mouth = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(mouthType[counter]);
       dispatch(avatarActions.mouthType(mouthType[counter]));
     }
   };
@@ -47,8 +45,6 @@ const Mouth = () => {
       if (counter < mouthType.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(mouthType[counter]);
       dispatch(avatarActions.mouthType(mouthType[counter]));
     }
   };

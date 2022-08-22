@@ -13,8 +13,6 @@ import Beard from "./AvatarComponents/Beard";
 import ClothingColor from "./AvatarComponents/ClothingColor";
 import Clothing from "./AvatarComponents/Clothing";
 
-
-
 const Avatar = () => {
   const gender = useSelector((state) => state.avatar.gender);
   const hairColor = useSelector((state) => state.avatar.hairColor);

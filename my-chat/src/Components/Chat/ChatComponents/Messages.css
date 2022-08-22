@@ -55,7 +55,8 @@
   }
   
   .Message-content > .text {
-    padding:4px 14px;margin:4px 14px;
+    padding:4px 14px;
+    margin:4px 14px;
     width: auto;
     max-width: 440px;
     margin: 0;
@@ -69,7 +70,7 @@
     background-color: orangered;
   }
 
-  .lastLi {
+  .newMember {
     position: sticky;
     text-align:center;
     top: 543px;

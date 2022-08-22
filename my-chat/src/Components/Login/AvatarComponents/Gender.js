@@ -7,10 +7,9 @@ const Gender = () => {
   const dispatch = useDispatch();
   const genderHandler = (event) => {
     event.preventDefault();
-
     const genderValue = event.target.value;
     dispatch(avatarActions.gender(genderValue));
-    console.log(event.target.value);
+    // console.log(genderValue)
   };
   return (
     <div className={styles.genderForm}>
@@ -30,7 +29,6 @@ const Gender = () => {
           value="breasts"
           onClick={genderHandler}
         >
-          {" "}
           <BsGenderFemale style={{ color: "#B91372" }} />
         </button>
       </div>

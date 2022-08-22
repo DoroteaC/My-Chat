@@ -24,8 +24,6 @@ const Beard = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(beardType[counter]);
       dispatch(avatarActions.beardType(beardType[counter]));
     }
   };
@@ -41,8 +39,6 @@ const Beard = () => {
       if (counter < beardType.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(beardType[counter]);
       dispatch(avatarActions.beardType(beardType[counter]));
     }
   };

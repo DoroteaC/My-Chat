@@ -24,8 +24,6 @@ const Skin = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(clothingType[counter]);
       dispatch(avatarActions.clothingType(clothingType[counter]));
     }
   };
@@ -41,8 +39,6 @@ const Skin = () => {
       if (counter < clothingType.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(clothingType[counter]);
       dispatch(avatarActions.clothingType(clothingType[counter]));
     }
   };

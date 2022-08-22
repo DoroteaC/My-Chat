@@ -1,12 +1,10 @@
 .chatContainer {
+    transform: translateX(-7vw);
     display: flex;
     flex-direction: row;
     height:80vh;
-    width:80vw;
-    background-color: aliceblue;
-    border-radius: 5px;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    width:67vw;
+    column-gap: 2vw;
 }
 
 .mainChatSpace {
@@ -14,6 +12,11 @@
     display:flex;
     flex-direction: column;
     align-items: stretch;
+    background-color: aliceblue;
+    border-radius: 50px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    
 }
 
 .chatSpace {
@@ -26,10 +29,9 @@
 
 
 .chatOnline {
-    flex-grow: 3;
-    border-left: 2px solid #144c9af7
+    flex-grow: 1;
+   
 }
-
 .chatWrite button{
     color:whitesmoke;
     font-weight: 700;

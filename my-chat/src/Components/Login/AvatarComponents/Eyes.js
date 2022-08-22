@@ -32,8 +32,6 @@ const Eyes = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(eyesType[counter]);
       dispatch(avatarActions.eyesType(eyesType[counter]));
     }
   };
@@ -49,8 +47,6 @@ const Eyes = () => {
       if (counter < eyesType.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(eyesType[counter]);
       dispatch(avatarActions.eyesType(eyesType[counter]));
     }
   };

@@ -9,17 +9,13 @@ const ClothingColor = () => {
     event.preventDefault();
     const color = event.target.value;
     dispatch(avatarActions.clothingColor(color));
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
-  //   const clothingColor = [
-  //    'white', 'blue', 'black', 'green', 'red'
-  //   ];
   return (
     <Wrapper>
       <div className={styles.clothingColorForm}>
         <p>Clothing color</p>
         <div>
-          {" "}
           <button
             id="black"
             value="black"

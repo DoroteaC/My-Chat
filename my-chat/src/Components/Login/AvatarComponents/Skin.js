@@ -23,8 +23,6 @@ const Skin = () => {
       if (counter > 0) {
         setCounterSmall(false);
       }
-      console.log(counter);
-      console.log(skinType[counter]);
       dispatch(avatarActions.skinType(skinType[counter]));
     }
   };
@@ -40,8 +38,6 @@ const Skin = () => {
       if (counter < skinType.length - 1) {
         setCounterBig(false);
       }
-      console.log(counter);
-      console.log(skinType[counter]);
       dispatch(avatarActions.skinType(skinType[counter]));
     }
   };
@@ -50,11 +46,11 @@ const Skin = () => {
     <Wrapper>
       <div className={styles.skinPicker}>
         <button onClick={previousHandler} disabled={counterSmall}>
-          <AiOutlineLeft/>
+          <AiOutlineLeft />
         </button>
         <span>Skin</span>
         <button onClick={nextHandler} disabled={counterBig}>
-          <AiOutlineRight/>
+          <AiOutlineRight />
         </button>
       </div>
     </Wrapper>
