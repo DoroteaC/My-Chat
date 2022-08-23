@@ -86,8 +86,9 @@ const Messages = (props, message) => {
         }
         return renderMessage(m, isSameSender);
       })}
-      <li className='newMember' ref={messagesEndRef}> {newMember&& <p> {lastMember.clientData.username} just joined</p>}
+      <li className='newMember'>  {newMember&& <p> {lastMember.clientData.username} just joined</p>}
       {someoneLeft&& <p> {leftMember.clientData.username} just left. </p>}</li>
+      <li className='lastLi' ref={messagesEndRef}></li>
     </ul>
   );
 };
