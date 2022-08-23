@@ -18,7 +18,7 @@ function App(props) {
   const username = useSelector((state) => state.user.username);
   const avatar = useSelector((state) => state.avatar);
   if (username.trim().length > 0 && drone === undefined) {
-    drone = new window.Scaledrone("b6RtdAak5Y0r6lir", {
+    drone = new window.Scaledrone("RSmMr0wjWTDtXT0h", {
       data: {
         username: username,
         avatar: avatar
