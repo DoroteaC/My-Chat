@@ -17,7 +17,7 @@ const Header = (props) => {
   const beard = useSelector((state) => state.avatar.beard);
   const clothing = useSelector((state) => state.avatar.clothing);
   const clothingColor = useSelector((state) => state.avatar.clothingColor);
- 
+
   
   return (
     <div className={styles.header}>
@@ -46,6 +46,7 @@ const Header = (props) => {
             mouth={mouth}
             skinTone={skin}
           />
+          
         </Wrapper>
 
         )}
